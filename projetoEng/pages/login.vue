@@ -48,8 +48,7 @@
                 <div class="input-block">
                   <label for="signupTel">N° de celular</label>
                   <input type="text" name="tel" id="phone"
-                   class="form-control" onkeypress="mask(this, mphone);
-                                      " onblur="mask(this, mphone);" required/>
+                   class="form-control" required v-mask="['(##) ####-####']"/>
 
                 </div>
                 <div class="input-block">
@@ -95,9 +94,27 @@
 </template>
 
 <script>
-import NuxtLogo from '~/components/NuxtLogo.vue';
 export default {
-    components: { NuxtLogo }
+  head: {
+    script: [
+      {src:"../scripts/login.js"},
+    {src:"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"},
+    {src:"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"},
+    {src:"https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"},
+    {src:"https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js", integrity:"sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8", crossorigin:"anonymous"},
+    {src:"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"},
+    ],
+    link: [
+      {href:"https://fonts.googleapis.com/css2?family=Righteous&display=swap", rel:"stylesheet"},
+      {href:"https://fonts.googleapis.com/css2?family=Vast+Shadow&display=swap", rel:"stylesheet"},
+      {rel:"preconnect", href:"https://fonts.googleapis.com"},
+      {rel:"preconnect", href:"https://fonts.gstatic.com"},
+      {rel:"stylesheet", href:"https://fonts.googleapis.com/css2?family=Train+One&display=swap"},
+      {rel:"stylesheet", href:"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"},
+      {rel:"stylesheet", href:"https://cdn.jsdelivr.net/npm/pace-js@latest/pace-theme-default.min.css"},
+      {rel:"stylesheet", href:"https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css", integrity:"sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT", crossorigin:"anonymous"},
+  ]
+}
 }
 </script>
 

@@ -15,7 +15,7 @@
          <li class="nav-item"><a href="feed.html">Home</a></li>
         </div>
         <div class="perfil">
-         <li class="nav-item"><a href="perfilEstudante.html">Perfil</a></li>
+         <li class="nav-item"><a href="/perfilCriadoA">Perfil</a></li>
         </div>
         <div class="search-box">
           <input class="search-txt" type="text" name="" placeholder="Procurar">
@@ -24,7 +24,7 @@
             </a>
           </div>
          <div class="sobre">
-          <li class="nav-item"><NuxtLink to="/sobre">Sobre</NuxtLink></li>
+          <li class="nav-item"><a href="/sobre">Sobre</a></li>
          </div>
          <div class="logout">
          <li class="nav-item"><a href="index.html">Logout</a></li>
@@ -177,7 +177,15 @@
 
 <script>
 export default {
-
+  head: {
+    script: [
+      {src:"https://kit.fontawesome.com/01b3655c48.js", crossorigin:"anonymous"},
+      {src:"https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"}
+  ],
+    link: [
+      {rel:"stylesheet", href:"https://cdn.jsdelivr.net/npm/pace-js@latest/pace-theme-default.min.css"},
+  ]
+}
 }
 </script>
 

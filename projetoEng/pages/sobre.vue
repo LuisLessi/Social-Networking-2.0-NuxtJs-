@@ -1,48 +1,52 @@
 <template>
-  <div class="nav-wrapper">
+
+  <div>
       <div class="grad-bar">
-              <div class="nav-wrapper">
-                      <div class="grad-bar"></div>
-                      <nav class="navbar">
-                        <NuxtLink to="/home"><img src="../assets/SocialNet_logo.svg.png" alt="Company Logo" class="logo" title="Home"></NuxtLink>
-                        <div class="menu-toggle" id="mobile-menu">
-                          <span class="bar"></span>
-                          <span class="bar"></span>
-                          <span class="bar"></span>
-                        </div>
-                        <ul class="nav no-search">
-                          <div class="home">
-                      <li class="nav-item"><NuxtLink to="/home"><a>Home</a></NuxtLink></li>
-                          </div>
-                      <div class="perfil">
-                          <li class="nav-item"><a href="perfilEstudante.html">Perfil</a></li>
-                      </div>
-                      <div class="search-box">
-                        <input class="search-txt" type="text" name="" placeholder="Procurar">
-                        <a class="search-btn" href="#">
-                          <i class="fas fa-search"></i>
+        <div class="nav-wrapper">
+     <div class="grad-bar"></div>
+     <nav class="navbar">
+      <a href="home.vue" class="logo"><img src="../assets/SocialNet_logo.svg.png" alt="Company Logo"></a>
+       <div class="menu-toggle" id="mobile-menu">
+         <span class="bar"></span>
+         <span class="bar"></span>
+         <span class="bar"></span>
+       </div>
+       <ul class="options">
+        <div class="home">
+         <li class="nav-item"><a href="feed.html">Home</a></li>
+        </div>
+        <div class="perfil">
+         <li class="nav-item"><a href="/perfilCriadoA">Perfil</a></li>
+        </div>
+        <div class="search-box">
+          <input class="search-txt" type="text" name="" placeholder="Procurar">
+          <a class="search-btn" href="#">
+            <i class="fas fa-search"></i>
+            </a>
+          </div>
+         <div class="sobre">
+          <li class="nav-item"><a href="/sobre">Sobre</a></li>
+         </div>
+         <div class="logout">
+         <li class="nav-item"><a href="index.html">Logout</a></li>
+        </div>
 
+       </ul>
 
-                          </a>
-                        </div>
-                      <div class="sobre">
-                              <li class="nav-item"><a href="#">Sobre</a></li>
-                             </div>
-                      <div class="logout">
-                      <li class="nav-item"><a href="index.html">Logout</a></li>
-              </div>
-                        </ul>
-                      </nav>
+     </nav>
+     </div>
       </div>
+      <div></div>
       <h1 class="title">SOBRE NOSSA EQUIPE
       </h1>
+
       <h3 class="text">Estudantes do curso de ADS e entusiastas da área de<br> desenvolvimento. Projeto criado como trabalho da <br>matéria "Laboratório de engenharia de software" da FATEC<br> TAQUARITINGA. Visando uma rede social que une o cenário<br> profissional com o estudantil, auxiliando alunos a<br> ingressar no seu primeiro emprego, e empresas a conseguir<br> contato mais fácil com esses estudantes. Para mais<br> informações favor entrar contato:</h3>
       <img src="../assets/zap.png" alt="contato zap" class="zap">
       <h5 class="numZap"><br>(16) 99792-9960</h5>
       <h5 class="numZap2"><br>(16) 99100-7359</h5>
 
       <h5 class="endEmail"><br>luisadsfatec@Hotmail.com</h5>
-   <img src="../assets/fatec.png" alt="fatec" class="fatec">
+   <img src="../assets/imgLoad.png" alt="fatec" class="fatec">
           <img src="../assets/email.png" alt="email" class="email">
     <div>
       <p class="luis">Desenvolvedor Front-End <br>utilizando vueJS com <br>base em UX/UI.<br>------------------------------</p>
@@ -64,21 +68,40 @@
     <p class="grupo">Desenvolvedor Front-End <br>utilizando vueJS com <br>base em UX/UI.<br>------------------------------</p>
       <div class="photo2"><a href="https://www.linkedin.com/in/ruan-corsi-129246238" target="_blank"><img id="profile" src="../assets/ruan.jpg" title="Ruan"></a></div>
     </div>
-    </div>
 
-</div>
+    </div>
 </template>
 
 <script>
+
 export default {
+  head: {
+    script: [
+    {src:"https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"},
+    {integrity:"sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=",
+     crossorigin:"anonymous"},
+    {src:"https://kit.fontawesome.com/01b3655c48.js", crossorigin:"anonymous"},
+    {src:"https://code.jquery.com/jquery-2.2.4.min.js", type:"txt/js"},
+    {src:"https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"},
+    ],
+    link: [
+      { rel:"preconnect", href:"https://fonts.googleapis.com" },
+      { rel:"preconnect", href:"https://fonts.gstatic.com" },
+      { rel:"stylesheet", href:"https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Press+Start+2P&family=Train+One&display=swap" },
+      { rel:"stylesheet", href:"https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Fredoka+One&family=Nabla&family=Press+Start+2P&family=Train+One&display=swap" },
+      { rel:"stylesheet", href:"https://fonts.googleapis.com/css2?family=Cinzel&display=swap"},
+      { rel:"stylesheet", href:"https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" },
+      { rel:"stylesheet", href:"https://use.fontawesome.com/releases/v5.7.1/css/all.css" },
+      { rel:"stylesheet", href:"https://cdn.jsdelivr.net/npm/pace-js@latest/pace-theme-default.min.css" },
+    ]
+  }
 
 }
 </script>
 
 <style>
 body {
-
-    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+  background: -webkit-linear-gradient(left, #3931af, #00c6ff);
 }
 
 .title {
@@ -99,9 +122,9 @@ body {
 
 .zap {
     position: absolute;
-    max-height: 55px;
-    padding-top: 350px;
-    padding-left: 395px;
+    padding-left: 390px;
+    padding-top: 430px;
+    max-height: 495px;
 }
 
 .fatec {
@@ -113,7 +136,7 @@ body {
 
 .email {
     position: absolute;
-    margin-top: 500px;
+    margin-top: 575px;
     margin-left: 395px;
     max-height: 40px;
 
@@ -141,7 +164,7 @@ body {
 .numZap {
     position: absolute;
     max-height: 55px;
-    padding-top: 315px;
+    padding-top: 455px;
     padding-left: 470px;
     position: absolute;
 
@@ -152,7 +175,7 @@ body {
 .numZap2 {
     position: absolute;
     max-height: 55px;
-    padding-top: 355px;
+    padding-top: 395px;
     padding-left: 470px;
     position: absolute;
 
@@ -163,7 +186,7 @@ body {
 .endEmail {
     position: absolute;
     max-height: 55px;
-    padding-top: 480px;
+    padding-top: 565px;
     padding-left: 465px;
     position: absolute;
 
@@ -174,12 +197,12 @@ body {
 .nav-wrapper {
     width: 1370;
     margin-left: -4px;
-    margin-top: -30px;
+    margin-top: -1px;
     position: -webkit-sticky;
     /* Safari */
     position: sticky;
     top: 0;
-    background-color: #fff;
+    background: white;
 }
 
 .grad-bar {
@@ -267,7 +290,9 @@ body {
     color: #3498db;
     cursor: pointer;
 }
-
+.options{
+  padding-left: 600px;
+}
 .search {
     transform: translate(-35%);
     -webkit-transform: translate(-35%);
@@ -314,9 +339,12 @@ body {
 
 
 }
-
+.logo{
+    position:absolute;
+    margin-top: 18px;
+}
 .logout {
-    margin-left: 290px;
+    margin-left: 790px;
     position: absolute;
     border-radius: 90px;
     padding-right: 10px;
@@ -325,8 +353,7 @@ body {
     padding-top: 2px;
     margin-top: -10px;
     background-color: #eb1616;
-    border-right: 80px;
-    margin-left: 880px;
+    margin-left: 800px;
 
 }
 
@@ -405,19 +432,13 @@ body {
     max-width: 640px;
 }
 
-body {
-    margin: 0%;
-    padding: 0%;
-    background-color: white;
-}
-
 .search-box {
     position: absolute;
-    left: 34%;
-    top: -30%;
+    left: 705px;
+    top: 23px;
     transform: translate(-50%, -50%);
     background-color: rgb(0, 0, 0);
-    height: 15px;
+    height: 35px;
     border-radius: 40px;
     padding: 10px;
 
@@ -591,4 +612,6 @@ body {
     background-color: #3d4852;
     border-radius: 3px;
 }
+
+
 </style>

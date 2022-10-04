@@ -148,7 +148,19 @@
 
 <script>
 export default {
+  head: {
+    script: [
+    {src:"//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"},
+    {src:"https://kit.fontawesome.com/01b3655c48.js", crossorigin:"anonymous"},
+    {src:"https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"},
+    ],
+    link:[
+      {src:"//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"},
+      {src:"https://use.fontawesome.com/releases/v5.7.1/css/all.css",integrity:"sha384-fnmOCqbT1WI1j8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr", crossorigin:"anonymous"},
+      {href:"https://cdn.jsdelivr.net/npm/pace-js@latest/pace-theme-default.min.css", rel:"stylesheet"}
 
+    ]
+  }
 }
 </script>
 
