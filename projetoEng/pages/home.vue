@@ -206,32 +206,44 @@ html {
 	background-color: #00a2e8;
 	border-radius: 4px;
 	padding-left: 8px;
-	padding-bottom: 3px;
+  padding-right: 2px;
 	padding-top: 3px;
 	margin-top: -5px;
 }
 
 .perfil {
-	margin-left: 15px;
+	margin-left: 20px;
+  padding-right: -20px
 }
 
 .logout {
-	margin-left: 190px;
 	position: absolute;
 	border-radius: 90px;
-	padding-right: 10px;
+	padding-right: 14px;
 	padding-left: 10px;
-	padding-bottom: 3px;
-	padding-top: 4px;
-	margin-top: -5px;
+	padding-bottom: -3px;
+	padding-top: -1px;
+	margin-top: -1px;
+  margin-left: 203px;
 	background-color: #eb1616;
 
 }
 
 
+
 .sobre {
-	margin-left: 15px;
+    border-radius: 4px;
+    padding-right: 15px;
+    padding-bottom: -35px;
+    padding-top: -35px;
+    margin-top: 1px;
+    position: absolute;
+    margin-left: 128px;
+    padding-left: 13px;
+
+
 }
+
 
 h1,
 h2 {

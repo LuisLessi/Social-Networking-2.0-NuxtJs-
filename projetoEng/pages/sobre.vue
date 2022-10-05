@@ -5,25 +5,20 @@
         <div class="nav-wrapper">
      <div class="grad-bar"></div>
      <nav class="navbar">
-      <a href="home.vue" class="logo"><img src="../assets/SocialNet_logo.svg.png" alt="Company Logo"></a>
        <div class="menu-toggle" id="mobile-menu">
          <span class="bar"></span>
          <span class="bar"></span>
          <span class="bar"></span>
        </div>
+
        <ul class="options">
         <div class="home">
-         <li class="nav-item"><a href="feed.html">Home</a></li>
+         <li class="nav-item"><a href="/home">Home</a></li>
         </div>
         <div class="perfil">
          <li class="nav-item"><a href="/perfilCriadoA">Perfil</a></li>
         </div>
-        <div class="search-box">
-          <input class="search-txt" type="text" name="" placeholder="Procurar">
-          <a class="search-btn" href="#">
-            <i class="fas fa-search"></i>
-            </a>
-          </div>
+
          <div class="sobre">
           <li class="nav-item"><a href="/sobre">Sobre</a></li>
          </div>
@@ -35,8 +30,9 @@
 
      </nav>
      </div>
+
       </div>
-      <div></div>
+
       <h1 class="title">SOBRE NOSSA EQUIPE
       </h1>
 
@@ -46,7 +42,8 @@
       <h5 class="numZap2"><br>(16) 99100-7359</h5>
 
       <h5 class="endEmail"><br>luisadsfatec@Hotmail.com</h5>
-   <img src="../assets/imgLoad.png" alt="fatec" class="fatec">
+      <img src="../assets/fatec.png" alt="fatec" class="fatec">
+
           <img src="../assets/email.png" alt="email" class="email">
     <div>
       <p class="luis">Desenvolvedor Front-End <br>utilizando vueJS com <br>base em UX/UI.<br>------------------------------</p>
@@ -57,19 +54,27 @@
       <div class="photo2"><a href="https://github.com/Ezequiel-Lima" target="_blank"><img id="profile" src="../assets/quiel.jpg" title="Ezequiel"></a></div>
     </div>
     <div>
-    <p class="grupo">Desenvolvedor Front-End <br>utilizando vueJS com <br>base em UX/UI.<br>------------------------------</p>
+    <p class="Eraldo">Desenvolvedor Front-End <br>utilizando vueJS com <br>base em UX/UI.<br>------------------------------</p>
       <div class="photo3"><a href="#footer"><img id="profile" src="../assets/Eraldo.jpg" title="Eraldo"></a></div>
     </div>
     <div>
-    <p class="grupo">Desenvolvedor Front-End<br> auxiliando com a técnica<br> pair programming<br>------------------------------</p>
+    <p class="Gabriel">Desenvolvedor Front-End<br> auxiliando com a técnica<br> pair programming<br>------------------------------</p>
       <div class="photo3"><a href="https://github.com/iCondition" target="_blank"><img id="profile" src="../assets/Gabriel.jpg"  title="Gabriel" ></a></div>
     </div>
     <div>
-    <p class="grupo">Desenvolvedor Front-End <br>utilizando vueJS com <br>base em UX/UI.<br>------------------------------</p>
-      <div class="photo2"><a href="https://www.linkedin.com/in/ruan-corsi-129246238" target="_blank"><img id="profile" src="../assets/ruan.jpg" title="Ruan"></a></div>
+    <p class="ruan">Desenvolvedor Front-End <br>utilizando vueJS com <br>base em UX/UI.<br>------------------------------</p>
+      <div class="photoRuan"><a href="https://www.linkedin.com/in/ruan-corsi-129246238" target="_blank"><img id="profile" src="../assets/ruan.jpg" title="Ruan"></a></div>
     </div>
+    <div class="search-box">
+          <input class="search-txt" type="text" name="" placeholder="Procurar">
+          <a class="search-btn" href="#">
+            <i class="fas fa-search"></i>
+            </a>
+          </div>
+          <a href="/home"><img src="../assets/SocialNetSobre_logo.png" class= "logo" alt="Company Logo"></a>
 
-    </div>
+        </div>
+
 </template>
 
 <script>
@@ -99,7 +104,8 @@ export default {
 }
 </script>
 
-<style>
+<style >
+
 body {
   background: -webkit-linear-gradient(left, #3931af, #00c6ff);
 }
@@ -107,36 +113,38 @@ body {
 .title {
     position: absolute;
     margin-left: 400px;
-    margin-top: 40px;
+    margin-top: 80px;
     color: #000000;
     font-family: 'Press Start 2P', cursive;
+    font-size: 35px;
 }
 
 .text {
     position: absolute;
-    margin-left: 400px;
-    margin-top: 110px;
+    margin-left: 320px;
+    margin-top: 140px;
     color: #000000;
     font-family: 'Cinzel', serif;
 }
 
 .zap {
     position: absolute;
-    padding-left: 390px;
-    padding-top: 430px;
-    max-height: 495px;
+    padding-left: 395px;
+    max-height: 470px;
+    padding-top: 410px;
+    margin-top: 55px;
 }
 
 .fatec {
     position: absolute;
-    max-height: 100px;
-    padding-top: 435px;
-    padding-left: 1040px;
+    padding-left: 990px;
+    margin-top: 460px;
+    height: 120px;
 }
 
 .email {
     position: absolute;
-    margin-top: 575px;
+    margin-top: 565px;
     margin-left: 395px;
     max-height: 40px;
 
@@ -145,7 +153,7 @@ body {
 .luis {
     position: absolute;
     margin-left: 70px;
-    margin-top: -45px;
+    margin-top: 7px;
     font-family: 'Fredoka One', cursive;
     font-size: 15px;
     color: #FCDE38;
@@ -160,11 +168,34 @@ body {
     color: #FCDE38;
 }
 
-
+.Eraldo{
+  position: absolute;
+    margin-left: 70px;
+    margin-top: 1px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 15px;
+    color: #FCDE38;
+}
+.Gabriel{
+  position: absolute;
+    margin-left: 70px;
+    margin-top: 5px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 15px;
+    color: #FCDE38;
+}
+.ruan{
+  position: absolute;
+    margin-left: 70px;
+    margin-top: 10px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 15px;
+    color: #FCDE38;
+}
 .numZap {
     position: absolute;
     max-height: 55px;
-    padding-top: 455px;
+    padding-top: 485px;
     padding-left: 470px;
     position: absolute;
 
@@ -175,7 +206,7 @@ body {
 .numZap2 {
     position: absolute;
     max-height: 55px;
-    padding-top: 395px;
+    padding-top: 435px;
     padding-left: 470px;
     position: absolute;
 
@@ -186,7 +217,7 @@ body {
 .endEmail {
     position: absolute;
     max-height: 55px;
-    padding-top: 565px;
+    padding-top: 555px;
     padding-left: 465px;
     position: absolute;
 
@@ -208,7 +239,7 @@ body {
 .grad-bar {
     width: 100%;
     height: 5px;
-    background: #23A6D5;
+    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
     background-size: 400% 400%;
     -webkit-animation: gradbar 5s ease infinite;
     -moz-animation: gradbar 5s ease infinite;
@@ -335,13 +366,17 @@ body {
 
 .perfil {
     margin-left: 18px;
-    margin-top: -8px;
+    margin-top: 13px;
 
 
 }
 .logo{
-    position:absolute;
-    margin-top: 18px;
+  position: absolute;
+  max-height: 37px;
+  margin-top: -517px;
+  max-width: 380px;
+  margin-left: 40px;
+
 }
 .logout {
     margin-left: 790px;
@@ -349,11 +384,9 @@ body {
     border-radius: 90px;
     padding-right: 10px;
     padding-left: 10px;
-    padding-bottom: 2px;
-    padding-top: 2px;
-    margin-top: -10px;
+    margin-top: 13px;
     background-color: #eb1616;
-    margin-left: 800px;
+    margin-left: 1230px;
 
 }
 
@@ -362,11 +395,11 @@ body {
     background-color: #00a2e8;
     border-radius: 4px;
     padding-right: 15px;
-    padding-bottom: 1px;
-    padding-top: 3px;
-    margin-top: -10px;
+    padding-bottom: -35px;
+    padding-top: -35px;
+    margin-top: 13px;
     position: absolute;
-    margin-left: 800px;
+    margin-left: 1148px;
     padding-left: 13px;
 
 
@@ -374,8 +407,8 @@ body {
 
 .home {
     padding-top: 4px;
-    margin-top: -13px;
-    padding-left: 640px;
+    margin-top: 9px;
+    padding-left: 430px;
 
 }
 
@@ -417,7 +450,19 @@ body {
     width: auto;
     max-width: 650px;
 }
-
+.photoRuan{
+  grid-area: photo;
+    margin-top: 10%;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: absolute;
+    align-items: flex-end;
+    margin-top: 20px;
+    width: auto;
+    max-width: 650px;
+}
 .photo3 {
     grid-area: photo;
     margin-top: 10%;
@@ -433,58 +478,57 @@ body {
 }
 
 .search-box {
-    position: absolute;
-    left: 705px;
-    top: 23px;
-    transform: translate(-50%, -50%);
-    background-color: rgb(0, 0, 0);
-    height: 35px;
-    border-radius: 40px;
-    padding: 10px;
-
+	position: absolute;
+	top: 30px;
+	left: 675px;
+	transform: translate(-50%, -50%);
+	background-color: black;
+	height: 35px;
+	border-radius: 40px;
+	padding: 10px;
 }
 
 .search-box:hover>.search-txt {
 
-    width: 240px;
-    padding: 0 5px;
+	width: 240px;
+	padding: 0 5px;
 
 }
 
 .search-box:hover>.search-btn {
 
-    background: none;
+	background: none;
 }
 
 
 .search-btn {
 
-    color: white;
-    float: right;
-    width: 25px;
-    height: 25px;
-    margin-top: -6;
-    border-radius: 50%;
-    background: #ed074c;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
+	color: white;
+	float: right;
+	width: 25px;
+	height: 25px;
+	margin-top: -5px;
+	border-radius: 50%;
+	background: #ed074c;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
 
 }
 
 .search-txt {
-    border: none;
-    background: none;
-    outline: none;
-    float: left;
-    padding: 0;
-    color: white;
-    font-size: 15px;
-    transition: 0.3s;
-    line-height: 27px;
-    width: 400px;
-    margin-top: -7px;
+	border: none;
+	background: none;
+	outline: none;
+	float: left;
+	padding: 0;
+	color: white;
+	font-size: 15px;
+	transition: 0.3s;
+	line-height: 27px;
+	width: 380px;
+	margin-top: -7px;
 
 }
 

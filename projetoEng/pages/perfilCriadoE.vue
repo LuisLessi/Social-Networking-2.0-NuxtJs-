@@ -1,153 +1,144 @@
 <template>
-  <div id="app">
-<form id="perfilA">
+<div id="app">
+<form id="perfilE">
         <div class="nav-wrapper">
                 <div class="grad-bar"></div>
                 <nav class="navbar">
-
-                  <div class="menu-toggle" id="mobile-menu">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                  </div>
-                  <ul>
-                   <div class="home">
-                    <li class="nav-item"><a href="/home">Home</a></li>
-                   </div>
-                   <div class="perfil">
-         <li class="nav-item"><a href="/perfilCriadoA">Perfil</a></li>
-        </div>
-                   <div class="search-box">
-                     <input class="search-txt" type="text" name="" placeholder="Procurar">
-                     <a class="search-btn" href="#">
-                       <i class="fas fa-search"></i>
-                       </a>
+                     <div class="menu-toggle" id="mobile-menu">
+                       <span class="bar"></span>
+                       <span class="bar"></span>
+                       <span class="bar"></span>
                      </div>
-                    <div class="sobre">
-                     <li class="nav-item"><a href="/sobre">Sobre</a></li>
-                    </div>
-                    <div class="logout">
-                    <li class="nav-item"><a href="/login">Logout</a></li>
-                   </div>
-
-                  </ul>
-
-                </nav>
-
-                </div>
-
-<div class="container rounded bg-white mt-5 mb-5">
-<div class="row">
-<div class="col-md-3 border-right">
-                                            <div class="imageContainer">
-                                                    <div class="imageContainer">
-                                                            <img src="../assets/camera.png" alt="Selecione uma imagem"
-                                                                    id="imgPhoto">
-                                                    </div>
-                                            </div>
-                                          <input v-show = "false" class="invisibleInput" type="file" id="fImage" name="fImage"
-                                                    accept="image/*">
-                                            <div class="row mt-2">
-                                                    <div>
-                                                            <p class="nome">Luís Felipe Lessi Silva</p>
-                                                    </div>
-
-                                                    <div><label class="profileLabel"></label><p class="email">
-                                                        luisctiunesp@hotmail.com
-                                                    </p>
-                                                    </div>
-                                            </div>
-                                            <div
-                                                    class="d-flex justify-content-between align-items-center experience">
-                                                    <span>
-                                                            <h3>Experiências</h3>
-                                                    </span>
-                                            </div><br>
-
-
-                                            <form id="myForm">
-
-
-
-                                            </form>
-                                    </div>
-
-                                    <div id="meio" class="col-md-5 border-right">
-                                            <div class="p-3 py-5">
-                                                    <div
-                                                            class="d-flex justify-content-between align-items-center mb-3">
-                                                            <h4 class="text-right">Informações do usuário</h4>
-                                                    </div>
-
-
-                                                    <div class="row mt-3">
-
-
-                                                        <div class="cinza"><label
-                                                                class="labels">Número de
-                                                                celular</label><p class="labels">(16) 99792-9960</p>
-
-                                                            </div>
-                                                            <div class="col-md-12"><label>Número de
-                                                                            telefone</label><p>(16) 3204-1519</p>
-                                                            </div>
-                                                            <div class="cinza"><label
-                                                                class="labels">Linkedin<p ><a href="https://www.linkedin.com/in/lu%C3%ADs-felipe-lessi-silva-9496aa1a1/" target="_blank">https://www.linkedin.com/in/lu%C3%ADs-felipe-lessi-silva-9496aa1a1/</a></p>
-                                                        </label>
-                                                            </div>
-                                                            <div class="col-md-12"><label
-                                                                            >Sites</label><p><a href="https://github.com/LuisLessi">https://github.com/LuisLessi</a></p>
-                                                            </div>
-                                                            <div class="cinza">
-                                                            <label
-                                                                            class="labels">Endereço</label><p class="labels">Jaboticabal</p><p class="bairro">Residencial</p><p class="sigla">SP</p>
-
-                                                        </div>
-
-                                                            <div class="col-md-12"><label class="data">Data de
-                                                                            nascimento</label><p class="nasc">18/06/2001</p>
-
-                                                                        </div>
-
-
-                                                    </div>
-                                            </div>
-                                            <div class="cinza2"><label class="labels">Escolaridade</label><p class="labels">Superior completo</p>
-                                            </div>
-                                        <a href="./perfilEstudante.html"><div id="btnEditaA" class="mt-5 text-center"><button class="btn btn-primary profile-button"
-                                                type="button">Editar Perfil</button>
-                                    </div> </a>
-                    <div class="col-md-12">
-
-                                    </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="p-3 py-5">
-                                    <div class="d-flex justify-content-between align-items-center experience">
-                                        <span>
-                                            <h2>Formações/cursos</h2>
-                                        </span>
-
-                                    </div><br>
-
-
-                                    <form id="myForm">
-                                        <fieldset id="buildyourform" placeholder="">
-                                        </fieldset>
-                                    </form>
-                                </div>
-
-                            </div>
+                     <ul>
+                      <div class="home">
+                       <li class="nav-item"><a href="feed.html">Home</a></li>
+                      </div>
+                      <div class="perfil">
+                       <li class="nav-item"><a href="perfilEstudante.html">Perfil</a></li>
+                      </div>
+                      <div class="search-box">
+                        <input class="search-txt" type="text" name="" placeholder="Procurar">
+                        <a class="search-btn" href="#">
+                          <i class="fas fa-search"></i>
+                          </a>
                         </div>
+                       <div class="sobre">
+                        <li class="nav-item"><a href="sobre.html">Sobre</a></li>
+                       </div>
+                       <div class="logout">
+                       <li class="nav-item"><a href="index.html">Logout</a></li>
+                      </div>
+
+                     </ul>
+
+                   </nav>
+                   </div>
+<div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="imageContainer">
+                <div class="imageContainer">
+                    <img src="../assets/camera.png" alt="Selecione uma imagem" id="imgPhoto">
+                </div>
+            </div>
+            <input class="invisibleInput" type="file" id="fImage" name="fImage" accept="image/*">
+            <div class="row mt-2">
+                <div>
+                    <p class="nome">Google</p>
+            </div>
+
+            <div><label class="profileLabel"></label><p class="email">
+                googlecontatos@google.com.br
+            </p>
+            </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center experience">
+                <span>
+                    <h3>Vagas</h3>
+                </span>
+            </div><br>
+            <fieldset id="fs">
+                <section>
+
+
+                    <ul id="todolist"></ul>
+                </section>
+            </fieldset>
+
+            <form id="myForm">
 
 
 
-                    </div>
-</form>
-<a href="/home"><img src="../assets/SocialNetSobre_logo.png" class= "logo" alt="Company Logo"></a>
+            </form>
+        </div>
+
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Informações da empresa</h4>
                 </div>
 
-    </template>
+
+                <div class="row mt-3">
+                    <div class="col-md-12" required><label>Número de
+                            celular</label><p>(11) 98101-8541</p>
+                    </div>
+                    <div class="cinza"><label class="labels">Número de
+                            telefone</label><p class="labels">0800 047 4795</p>
+                    </div>
+                    <div class="col-md-12"><label>Linkedin</label><p><a href="https://www.linkedin.com/company/google/jobs/" target="_blank">https://www.linkedin.com/company/google/jobs/</a></p>
+                    </div>
+                    <div class="cinza"><label class="labels">Sites</label><p class="labels"><a href="#">https://careers.google.com/?src=Online%2FLinkedIn%2Flinkedin_profilepage&utm_campaign=profilepage&utm_medium=profilepage&utm_source=linkedin</a></p>
+                    </div>
+
+                    <div class="col-md-12"><label>Data de
+                            fundação</label><p>04/09/1998</p>
+                    </div>
+
+
+
+
+                </div>
+                <div class="row mt-3">
+
+
+                </div>
+                <div class="col-md-12"><label class="labelInfo">Sobre</label>
+                    <textarea type="text" name="sobre" class="form-control"
+                    placeholder="Um problema não é realmente resolvido até que seja resolvido para todos. O Google cria produtos que ajudam a criar oportunidades para todos, seja na rua ou em todo o mundo. Traga sua visão, imaginação e um saudável desrespeito pelo impossível. Traga tudo o que o torna único. Juntos, podemos construir para todos." value=""
+                    maxlength="1000" style="height: 120px;" disabled="disabled"></textarea>
+                </div>
+
+                <a href="./perfilEmpresa.html"><div id="btnEditaE" class="mt-5 text-center"><button class="btn btn-primary profile-button"
+                        type="button">Editar Perfil</button></div></a>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center experience">
+                    <span>
+                        <h2>Sedes da empresa</h2>
+                    </span>
+
+                </div><br>
+
+
+                <form id="myForm">
+                    <fieldset id="buildyourform" placeholder="">
+                    </fieldset>
+                  </form>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+</form>
+<a href="/home"><img src="../assets/SocialNetSobre_logo.png" class="logo" alt="Company Logo"></a>
+</div>
+</template>
 
 <script>
 export default {
@@ -160,15 +151,15 @@ export default {
     link:[
       {src:"//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"},
       {src:"https://use.fontawesome.com/releases/v5.7.1/css/all.css",integrity:"sha384-fnmOCqbT1WI1j8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr", crossorigin:"anonymous"},
-      {href:"https://cdn.jsdelivr.net/npm/pace-js@latest/pace-theme-default.min.css", rel:"stylesheet"}
+      {href:"https://cdn.jsdelivr.net/npm/pace-js@latest/pace-theme-default.min.css", rel:"stylesheet"},
 
     ]
   }
 }
+
 </script>
 
 <style>
-
 body {
     background: -webkit-linear-gradient(left, #3931af, #00c6ff);
 }
@@ -178,7 +169,7 @@ h2 {
 }
 
 h3 {
-    margin-left: 50px;
+    margin-left: 80px;
 
 }
 
@@ -192,10 +183,6 @@ h3 {
     border-radius: 40px;
     padding: 18px;
 
-}
-
-#meio {
-    padding-bottom: 40px;
 }
 
 .search-box:hover>.search-txt {
@@ -213,7 +200,7 @@ h3 {
 
 .search-btn {
 
-    color: white;
+  color: white;
     float: right;
     width: 25px;
     height: 25px;
@@ -225,6 +212,7 @@ h3 {
     text-decoration: none;
     margin-top: -13px;
     margin-left: 10px
+
 }
 
 .search-txt {
@@ -248,6 +236,7 @@ h3 {
     padding-left: 15px;
     margin-bottom: 14px;
     margin-top: 10px;
+    padding-bottom: -30px;
     margin-left: 10px;
 
 }
@@ -263,41 +252,12 @@ h3 {
     padding-top: 10px;
 }
 
-.cinza {
-    min-width: 474px;
-    margin-left: -16px;
-    background-color: #eeeeee;
-}
 
-.cinza2 {
-    min-width: 474px;
-    margin-left: -15px;
-    margin-top: 30px;
-    background-color: #eeeeee;
-    border-top: 90px;
-    padding-bottom: 5px;
-}
 
-.col-md-12 {
-    border-bottom: 900px;
-}
-
-.labels {
-    word-break: break-word;
+.labelsCinza1 {
+    position: relative;
     padding-left: 30px;
-}
-
-.bairro {
-    position: absolute;
-    padding-left: 180px;
-    margin-top: -40px;
-}
-
-
-.sigla {
-    position: absolute;
-    padding-left: 370px;
-    margin-top: -40px;
+    padding-top: 30px;
 }
 
 .logout {
@@ -427,10 +387,11 @@ h3 {
 .logo {
   position: absolute;
   max-height: 37px;
-  margin-top: -900px;
+  margin-top: -970px;
   max-width: 380px;
   margin-left: 40px;
 }
+
 .profile-img {
     text-align: center;
 }
@@ -530,9 +491,16 @@ h3 {
     font-weight: 600;
 }
 
+.cidade {
+    position: absolute;
+    margin-bottom: 90px;
+    margin-left: 160px;
+}
 
-
-
+.bairro {
+    position: absolute;
+    padding-left: 16px;
+}
 
 .data {
     position: absolute;
@@ -556,7 +524,9 @@ h3 {
     margin-left: 90px;
 }
 
-
+.endere {
+    margin-left: 16px;
+}
 
 .formacoes {
     position: absolute;
@@ -571,7 +541,10 @@ h3 {
     padding-left: 10px;
 }
 
-
+#btnEditar {
+    padding-top: 130px;
+    margin-bottom: -100px
+}
 
 .curso {
     position: absolute;
@@ -725,11 +698,30 @@ h3 {
     border-radius: 3px;
 }
 
-
+.sigla {
+    display: absolute;
+    margin-left: 330px;
+    margin-top: 0px;
+}
 
 .estado {
     position: absolute;
     margin-top: -43px;
     margin-left: 320px;
+}
+
+.cinza {
+    min-width: 474px;
+    margin-left: -16px;
+    background-color: #eeeeee;
+}
+
+.labels {
+    word-break: break-word;
+    padding-left: 30px;
+}
+
+.labelInfo {
+    padding-left: 170px;
 }
 </style>
