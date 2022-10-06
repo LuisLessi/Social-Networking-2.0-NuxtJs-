@@ -1,120 +1,135 @@
 <template>
-    <div class="fundo">
-      <section class="forms-section">
-          <h1 class="section-title1">Social <span class="section-title2"> Networking</span></h1>
-        <div class="forms">
-          <div class="form-wrapper is-active">
-            <button type="button" class="switcher switcher-login">
-              Login
-              <span class="underline"></span>
-            </button>
-            <form class="form form-login">
-              <fieldset>
-                <legend>Por favor, digite seu e-mail e senha para logar
-                  .</legend>
-                <div class="input-block">
-                  <label for="login-email">E-mail</label>
-                  <input id="login-email" type="email" name="emailLog" required>
-                </div>
+	<div id="app">
+	<div class="fundo">
+		<section class="forms-section">
+			<h1 class="section-title1">Social <span class="section-title2"> Networking</span></h1>
+			<div class="forms">
+				<div class="form-wrapper is-active">
+					<button type="button" class="switcher switcher-login" @click="data = !data">
+						Login
+						<span class="underline"></span>
+					</button>
+					<form class="form form-login" :class="{'is-active' : switchers}">
+						<fieldset>
+							<legend>Por favor, digite seu e-mail e senha para logar
+								.</legend>
+							<div class="input-block">
+								<label for="login-email">E-mail</label>
+								<input id="login-email" type="email" name="emailLog" required>
+							</div>
+							{{ switch.toString() }}
 
+							<div class="input-block">
+								<label for="login-password">Password</label>
+								<input id="login-password" type="password" name="senhaLog" required>
+							</div>
+						</fieldset>
+						<button type="submit" class="btn-login">Login</button>
+					</form>
+				</div>
+				<div class="form-wrapper">
+					<button @click="data = !data" type="button" class="switcher switcher-signup">
+						Criar conta
+						<span class="underline"></span>
+					</button>
+				</div>
+				<form @submit.prevent="criarConta" class="form form-signup">
+					<fieldset>
+						<legend>Por favor, preencha os dados abaixo para se cadastra.</legend>
+						<div class="input-block">
+							<label for="signupEmail">Nome completo</label>
+							<input class="label-nome" id="signupEmail" type="nome" required>
 
-                <div class="input-block">
-                  <label for="login-password">Password</label>
-                  <input id="login-password" type="password" name="senhaLog" required>
-                </div>
-              </fieldset>
-              <button type="submit" class="btn-login">Login</button>
-            </form>
-          </div>
-          <div class="form-wrapper">
-            <button type="button" class="switcher switcher-signup">
-              Criar conta
-              <span class="underline"></span>
-            </button>
-          </div>
-          <form @submit.prevent="criarConta" class="form form-signup">
-              <fieldset>
-                <legend>Por favor, preencha os dados abaixo para se cadastra.</legend>
-                <div class="input-block">
-                  <label for="signupEmail">Nome completo</label>
-                  <input class = "label-nome" id="signupEmail" type="nome" required>
+						</div>
+						<div class="input-block">
+							<label for="signupEmail">E-mail</label>
+							<input id="signupEmail" type="email" required>
 
-                </div>
-                <div class="input-block">
-                  <label for="signupEmail">E-mail</label>
-                  <input id="signupEmail" type="email"  required>
+						</div>
+						<div class="input-block">
+							<label for="signupTel">N° de celular</label>
+							<input type="text" name="tel" id="phone" class="form-control" required
+								v-mask="['(##) ####-####']" />
 
-                </div>
-                <div class="input-block">
-                  <label for="signupTel">N° de celular</label>
-                  <input type="text" name="tel" id="phone"
-                   class="form-control" required v-mask="['(##) ####-####']"/>
+						</div>
+						<div class="input-block">
+							<label for="signupEmail">Data de nascimento</label>
+							<input name="data" class="form-control" type="date" placeholder="Ex.: dd/mm/aaaa"
+								data-mask="00/00/0000" maxlength="8" autocomplete="off" required>
 
-                </div>
-                <div class="input-block">
-                  <label for="signupEmail">Data de nascimento</label>
-                  <input name="data" class="form-control" type="date"
-                  placeholder="Ex.: dd/mm/aaaa" data-mask="00/00/0000" maxlength="8"
-                  autocomplete="off" required>
-
-                </div>
-                <div class="input-block">
-                  <label for="signupPassword" >Senha</label>
-                  <input id="signupPassword" type="password" required>
-                </div>
-                <div class="input-block">
-                  <label for="passwordConfirm">Confirmar Senha</label>
-                  <input id="passwordConfirm" type="password"  required><br>
-                  <label><p>Selecione o tipo de conta</p></label><br>
-                  <label>Empresarial<input name="tipoConta" id="contaE" type="radio" required checked ></label>
-                  <label></label>
-                  <label></label>
-                  <label></label>
-                  <label></label>
-                  <label></label>
-                  <label></label>
-                  <label></label>
-                  <label></label>
-                  <label></label>
-                  <label></label>
-                  <label></label>
-                  <label></label>
-                  <label></label>
-                  <label></label>
-                  <label></label>
-                  <label>Empregado<input name="tipoConta" id="contaA" type="radio" required></label>
-                </div>
-              </fieldset>
-              <button onclick=""
-                href="" type="submit" class="btn-signup" >Continue</button>
-            </form>
-        </div>
-          </section>
-          </div>
+						</div>
+						<div class="input-block">
+							<label for="signupPassword">Senha</label>
+							<input id="signupPassword" type="password" required>
+						</div>
+						<div class="input-block">
+							<label for="passwordConfirm">Confirmar Senha</label>
+							<input id="passwordConfirm" type="password" required><br>
+							<label>
+								<p>Selecione o tipo de conta</p>
+							</label><br>
+							<label>Empresarial<input name="tipoConta" id="contaE" type="radio" required checked></label>
+							<label></label>
+							<label></label>
+							<label></label>
+							<label></label>
+							<label></label>
+							<label></label>
+							<label></label>
+							<label></label>
+							<label></label>
+							<label></label>
+							<label></label>
+							<label></label>
+							<label></label>
+							<label></label>
+							<label></label>
+							<label>Empregado<input name="tipoConta" id="contaA" type="radio" required></label>
+						</div>
+					</fieldset>
+					<button onclick="" href="" type="submit" class="btn-signup">Continue</button>
+				</form>
+			</div>
+		</section>
+	</div>
+</div>
 </template>
 
 <script>
+/*const switchers = [...document.querySelectorAll('.switcher')]
+
+switchers.forEach(item => {
+	item.addEventListener('click', function () {
+		switchers.forEach(item => item.parentElement.classList.remove('is-active'))
+		this.parentElement.classList.add('is-active')
+	})
+})*/
 export default {
-  head: {
-    script: [
-      {src:"../scripts/login.js"},
-    {src:"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"},
-    {src:"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"},
-    {src:"https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"},
-    {src:"https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js", integrity:"sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8", crossorigin:"anonymous"},
-    {src:"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"},
-    ],
-    link: [
-      {href:"https://fonts.googleapis.com/css2?family=Righteous&display=swap", rel:"stylesheet"},
-      {href:"https://fonts.googleapis.com/css2?family=Vast+Shadow&display=swap", rel:"stylesheet"},
-      {rel:"preconnect", href:"https://fonts.googleapis.com"},
-      {rel:"preconnect", href:"https://fonts.gstatic.com"},
-      {rel:"stylesheet", href:"https://fonts.googleapis.com/css2?family=Train+One&display=swap"},
-      {rel:"stylesheet", href:"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"},
-      {rel:"stylesheet", href:"https://cdn.jsdelivr.net/npm/pace-js@latest/pace-theme-default.min.css"},
-      {rel:"stylesheet", href:"https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css", integrity:"sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT", crossorigin:"anonymous"},
-  ]
-}
+	el:'#app',
+
+	data() {
+		return { switch: true }
+	},
+	head: {
+		script: [
+			{ src: "../scripts/login.js" },
+			{ src: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" },
+			{ src: "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" },
+			{ src: "https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js" },
+			{ src: "https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js", integrity: "sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8", crossorigin: "anonymous" },
+			{ src: "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" },
+		],
+		link: [
+			{ href: "https://fonts.googleapis.com/css2?family=Righteous&display=swap", rel: "stylesheet" },
+			{ href: "https://fonts.googleapis.com/css2?family=Vast+Shadow&display=swap", rel: "stylesheet" },
+			{ rel: "preconnect", href: "https://fonts.googleapis.com" },
+			{ rel: "preconnect", href: "https://fonts.gstatic.com" },
+			{ rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Train+One&display=swap" },
+			{ rel: "stylesheet", href: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" },
+			{ rel: "stylesheet", href: "https://cdn.jsdelivr.net/npm/pace-js@latest/pace-theme-default.min.css" },
+			{ rel: "stylesheet", href: "https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css", integrity: "sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT", crossorigin: "anonymous" },
+		]
+	}
 }
 </script>
 
@@ -134,10 +149,11 @@ body {
 
 	margin: 0px;
 	font-family: Roboto, -apple-system, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
+	background-color: url(../assets/photo-1451187580459-43490279c0fa.jpg);
 }
 
 .fundo {
-	background-color: #3f48cc;
+	background-image: url(../assets/photo-1451187580459-43490279c0fa.jpg);
 	background-repeat: no-repeat;
 	bottom: 0;
 	color: black;
@@ -235,7 +251,7 @@ body {
 	background-color: black;
 	transform: translateX(90px);
 	font-weight: bold;
-
+	margin-left: 138px;
 }
 
 .form-wrapper.is-active .switcher-signup {
@@ -243,9 +259,6 @@ body {
 	transform: translateX(-90px);
 	background-color: black;
 	border-radius: 5px;
-
-
-
 }
 
 .underline {
@@ -293,6 +306,7 @@ body {
 
 .form-login {
 	animation: hideLogin .3s ease-out forwards;
+	margin-right: 90px;
 }
 
 .form-wrapper.is-active .form-login {
@@ -333,6 +347,8 @@ body {
 
 .form-signup {
 	animation: hideSignup .3s ease-out forwards;
+	margin-left: -200px;
+	margin-top: 82px;
 }
 
 .form-wrapper.is-active .form-signup {
