@@ -11,10 +11,10 @@
                      </div>
                      <ul>
                       <div class="home">
-                       <li class="nav-item"><a href="feed.html">Home</a></li>
+                       <li class="nav-item"><a href="/home">Home</a></li>
                       </div>
                       <div class="perfil">
-                       <li class="nav-item"><a href="perfilEstudante.html">Perfil</a></li>
+                       <li class="nav-item"><a href="/perfilEstudante">Perfil</a></li>
                       </div>
                       <div class="search-box">
                         <input class="search-txt" type="text" name="" placeholder="Procurar">
@@ -23,10 +23,10 @@
                           </a>
                         </div>
                        <div class="sobre">
-                        <li class="nav-item"><a href="sobre.html">Sobre</a></li>
+                        <li class="nav-item"><a href="/home">Sobre</a></li>
                        </div>
                        <div class="logout">
-                       <li class="nav-item"><a href="index.html">Logout</a></li>
+                       <li class="nav-item"><a href="/login">Logout</a></li>
                       </div>
 
                      </ul>

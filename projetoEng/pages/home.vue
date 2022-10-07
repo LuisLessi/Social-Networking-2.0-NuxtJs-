@@ -1,6 +1,6 @@
 <template>
-  <div>
 <div class="page-wrapper">
+
     <div class="nav-wrapper">
      <div class="grad-bar"></div>
      <nav class="navbar">
@@ -12,7 +12,7 @@
        </div>
        <ul>
         <div class="home">
-         <li class="nav-item"><a href="feed.html">Home</a></li>
+         <li class="nav-item"><a href="/home">Home</a></li>
         </div>
         <div class="perfil">
          <li class="nav-item"><a href="/perfilCriadoA">Perfil</a></li>
@@ -27,35 +27,26 @@
           <li class="nav-item"><a href="/sobre">Sobre</a></li>
          </div>
          <div class="logout">
-         <li class="nav-item"><a href="index.html">Logout</a></li>
+         <li class="nav-item"><a href="/login">Logout</a></li>
         </div>
 
        </ul>
 
      </nav>
      </div>
-          <section class="stars-container">
-        <div class="container">
-            <div id="stars"></div>
-            <div id="stars2"></div>
-            <div id="stars3"></div>
-          <div class="row"></div>
-      </div>
-          </section>
+     <section id="back">
+
     <div class="anim-container" id="anim_container">
-    <section id="back">
-       <h1>Seu Networking Profissional Começa Agora</h1>
+       <h1 font-weight-bold>Seu Networking Profissional Começa Agora</h1>
        <br>
 
        <h2>É estudante ? Navegue e encontre empresas no qual estão atrás de profissionais como você</h2>
        <br>
        <h2>É uma empresa ? Procure por profissionais que farão parte de sua equipe</h2>
 
-     </section>
-    </div>
-   </div>
-    <div class="center">
-      <a href="#anchor"></a>
+
+      </div>
+      <div class="center">
       <button class="btn">
         <svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
           <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
@@ -64,13 +55,7 @@
         <span>Feed <br>⇩</span>
       </button>
     </div>
-
-  <!--Abas-->
-  <div id="anchor">
-</div>
-
-<main class="feedFundo">
-  <section class="carousel" >
+    <section class="carousel" >
       <ul class="carousel-items">
         <li class="carousel-item1">
           <div class="card">
@@ -82,101 +67,25 @@
               </div>
           </div>
       </li>
+    </ul>
       <li class="carousel-item">
         <div class="cardPerfil">
-          <img src="../assets/Luis.jpg" class="photo-perfil" />
+          <img src="../assets/imgLoad.png" class="imgLoad" alt="Selecione uma imagem" id="imgPhoto">
         </div>
-            <h2 class="card-title">Luís Felipe Lessi</h2>
-            <div class="comments">
-              <div class="comment-input"> <input placeholder="Divulgue sobre algo..." type="text" class="form-control">
-              </div>
-
-              <div class="imageContainer">
-                <div class="imageContainer">
-                    <img src="../assets/imgLoad.png" class="imgLoad" alt="Selecione uma imagem" id="imgPhoto">
-                </div>
-              </div>
-                        <div class="card-content">
-              <div class="wrap">
-                <button class="pub">Publicar</button>
-              </div>
-            </div>
-        </div>
-
     </li>
-    <li class="carousel-item">
-      <div class="card">
-        <img src="../assets/quiel.jpg" class="photo-perfil" />
-
-          <h2 class="card-title">Ezequiel Lima          </h2>
-          <div class="post">
-
-            <img class= "photoPost" src= "../assets/postagem1.png" alt="photo">
-          <p class="textoPost">Olá pessoal, estou precisando de ajuda em uma parte do meu código do trabalho, estou utilizando da linguagem sql e tenho o projeto em meu github, quem quiser dar uma olhada: https://github.com/Ezequiel-Lima </p>
-          </div>
-      </div>
-
-  </li>
-
-  <li class="carousel-item">
-    <div class="card">
-      <img src="../assets/google.png" class="photo-perfil" />
-    </div>
-        <h2 class="card-title">Google</h2>
-        <div class="post">
-        <p class="textoPost">Estamos com vagas em aberto para os seguintes setores: <br>°Engenheiro de software <br>°Analista de sistemas <br>°Desenvolvedor KOTLIN pleno<br>Acesse o perfil para mais informações</p>
-    </div>
-
-</li>
-<li class="carousel-item">
-  <div class="card">
-    <img src="../assets/Eraldo.jpg" class="photo-perfil" />
-
-      <h2 class="card-title">Eraldo Neves</h2>
-      <div class="post">
-      <p class="textoPost">Alguém com vaga de suporte helpdesk ?</p>
-      </div>
-  </div>
-
-</li>
-<li class="carousel-item">
-  <div class="card">
-    <img src="../assets/Gabriel.jpg" class="photo-perfil" />
-
-      <h2 class="card-title">Gabriel Pereira </h2>
-      <div class="post">
-
-        <img class= "photoPost" src= "../assets/meme.jpg" alt="photo">
-      <p class="textoPost">Bem isso 🤣🤣🤣🤣</p>
-      </div>
-  </div>
-
-</li>
-<li class="carousel-item">
-  <div class="card">
-    <img src="../assets/centroPaula.png" class="photo-perfil" />
-
-      <h2 class="card-title">Centro Paulo Souza</h2>
-      <div class="post">
-        <img class= "photoPost" src= "../assets/fatecPub.jpg" alt="photo">
-      <p class="textoPost">👨‍🏫 Estão abertas as inscrições do concurso público para professores de prazo indeterminado.
-
-        No total, serão contratados 993 docentes de Ensino Médio e Técnico.
-
-        ➡️ No momento, há mais de 400 editais disponíveis. Os próximos serão liberados em lotes e podem ser conferidos pelo site: https://lnkd.in/d-usxJ8N</p>
-      </div>
-  </div>
-
-</li>
-      </ul>
 </section>
-</main>
-</div>
+</section>
+
+   </div>
+
+
+
 
 </template>
 
 <script>
 export default {
+
   head: {
     script: [
       {src:"https://kit.fontawesome.com/01b3655c48.js", crossorigin:"anonymous"},
@@ -250,10 +159,13 @@ h2 {
 	color: #000;
 	text-align: center;
 	line-height: 1.4;
+  text-decoration: bold;
+  font-weight: bold
 }
 
 h1 {
 	font-size: 2.2rem;
+  font-weight: bold
 }
 
 h2 {
@@ -611,6 +523,7 @@ input {
 	h1 {
 		font-size: 1.9rem;
 		color: #000;
+    text-decoration: bold;
 	}
 
 	h2 {
@@ -911,7 +824,7 @@ input {
 	width: 180px;
 	height: 60px;
 	position: absolute;
-	margin-top: -280px;
+	margin-top: -780px;
 	margin-left: 585px;
 }
 

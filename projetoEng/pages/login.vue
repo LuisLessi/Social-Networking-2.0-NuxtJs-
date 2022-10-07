@@ -107,7 +107,7 @@
                     name="tipoConta"
                     id="contaE"
                     type="radio"
-                    required
+
                     checked
                 /></label>
                 <label></label>
@@ -130,7 +130,7 @@
                     name="tipoConta"
                     id="contaA"
                     type="radio"
-                    required
+
                 /></label>
               </div>
             </fieldset>
@@ -159,6 +159,11 @@ export default {
 
   data() {
     return { isTabActive: true };
+  },
+  data(){
+    return {
+
+    }
   },
   head: {
     script: [
@@ -212,6 +217,14 @@ export default {
       },
     ],
   },
+  mounted(){
+    this.getCadastro()
+  },
+  methods: {
+    getCadastro(){
+      this.$axios.getCadastro
+    }
+  }
 };
 </script>
 

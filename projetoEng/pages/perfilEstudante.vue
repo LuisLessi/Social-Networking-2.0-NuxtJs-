@@ -15,10 +15,10 @@
                                   <ul class="nav no-search">
 
                                     <div class="home">
-                                <li class="nav-item"><a href="feed.html">Home</a></li>
+                                <li class="nav-item"><a href="/home">Home</a></li>
                                     </div>
                                 <div class="perfil">
-                                    <li class="nav-item"><a href="perfilEstudante.html">Perfil</a></li>
+                                    <li class="nav-item"><a href="/perfilCriadoA">Perfil</a></li>
                                 </div>
                                 <div class="search-box">
                         <input class="search-txt" type="text" name="" placeholder="Procurar">
@@ -29,10 +29,10 @@
                           </a>
                                 </div>
                                 <div class="sobre">
-                                        <li class="nav-item"><a href="sobre.html">Sobre</a></li>
+                                        <li class="nav-item"><a href="/sobre">Sobre</a></li>
                                        </div>
                                 <div class="logout">
-                                <li class="nav-item"><a href="index.html">Logout</a></li>
+                                <li class="nav-item"><a href="/login">Logout</a></li>
                         </div>
                       </ul>
                     </nav>
@@ -235,7 +235,7 @@
 
         </div>
 </form>
-<a href="feed.html"><img src="../assets/SocialNetSobre_logo.png" alt="Company Logo" class="logo"></a>
+<div ><a href="/home"><img class="logo" src="../assets/SocialNetSobre_logo.png" alt="Company Logo" ></a></div>
 </div>
 </template>
 
@@ -243,16 +243,14 @@
 export default {
   head: {
     script: [
-    {src:"//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"},
     {src:"https://kit.fontawesome.com/01b3655c48.js"},
-    {src:"https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"},
+    {src:"//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"},
     {src:"https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"},
 
     ],
     link:[
       {rel:"stylesheet", id:"bootstrap-css", src:"//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"},
-      {rel:"stylesheet", id:"bootstrap-css", src:"https://use.fontawesome.com/releases/v5.7.1/css/all.css", integrity:"sha384-fnmOCqbT1WI1j8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr", crossorigin:"anonymous"},
-      {href:"https://cdn.jsdelivr.net/npm/pace-js@latest/pace-theme-default.min.css", rel:"stylesheet"},
+      {href:"https://cdn.jsdelivr.net/npm/pace-js@latest/pace-theme-default.min.css"},
     ]
   }
 }
@@ -303,7 +301,7 @@ h3 {
     float: right;
     width: 25px;
     height: 25px;
-    margin-top: -13;
+    margin-top: -13px;
     border-radius: 50%;
     background: #ed074c;
     display: flex;
@@ -312,7 +310,9 @@ h3 {
     text-decoration: none;
 
 }
-
+.no-search{
+  margin-top: 10px;
+}
 .search-txt {
     border: none;
     background: none;
@@ -471,7 +471,11 @@ h3 {
 }
 
 .logo {
-    padding-bottom: 10px;
+  position: absolute;
+  margin-top: 10px;
+  padding-left: 20px;
+  max-height: 40px;
+
 }
 
 .profile-img {

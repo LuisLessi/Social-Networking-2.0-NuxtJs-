@@ -63,7 +63,7 @@
                                 <form action="#" method="post">
                                     <div> <input style="margin-bottom: 30px;" type="text" id="newitem"
                                             placeholder="quant / setor - atuação" />
-                                        <button @click="addTask" class="job"  value="Add">add</button>
+                                        <button @click="addTask()">add</button>
 
                                     </div>
                                 </form>
@@ -137,6 +137,11 @@
 
                             <button type="button" value="Add a field" class="add" id="add"
                                 onclick="addTextInput()">Add</button>
+                                <ul>
+                                  <li v-for="sede in sedes" :key="sede.id">
+                                      {{sede}}
+                                  </li>
+                                </ul>
                             <form id="myForm">
                                 <fieldset id="buildyourform" placeholder="Instituição - data de conclusão">
                                 </fieldset>
@@ -157,6 +162,11 @@
 
 <script>
 export default {
+  data(){
+    return{
+      sedes:["Ribeirão preto"]
+    }
+  },
   methods: {
     addTask() {
         let newTask = {
@@ -183,6 +193,17 @@ export default {
       {rel:"stylesheet", id:"bootstrap-css", src:"//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"},
       {href:"https://cdn.jsdelivr.net/npm/pace-js@latest/pace-theme-default.min.css"},
     ]
+  },
+  mounted(){
+    this.getSedes()
+  },
+  methods: {
+    getSedes() {
+      this.axios.get('sedes').then(res =>
+      {
+      this.sedes = res.data
+      })
+    }
   }
 }
 </script>
