@@ -52,6 +52,8 @@
               Criar conta
               <span class="underline"></span>
             </button>
+
+            <!-- Form Cadastro-->
           <form @submit.prevent="criarConta" class="form form-signup">
             <fieldset>
               <legend>
@@ -61,6 +63,7 @@
                 <label for="signupEmail">Nome completo</label>
                 <input
                   class="label-nome"
+                  v-model="cliente.nome"
                   id="signupEmail"
                   type="nome"
                   required
@@ -68,10 +71,10 @@
               </div>
               <div class="input-block">
                 <label for="signupEmail">E-mail</label>
-                <input id="signupEmail" type="email" required />
+                <input id="signupEmail" v-model="cliente.email" type="email" required />
               </div>
               <div class="input-block">
-                <label for="signupTel">N° de celular</label>
+                <label for="signupTel" >N° de celular</label>
                 <input
                   type="text"
                   name="tel"
@@ -79,12 +82,13 @@
                   class="form-control"
                   required
                   v-mask="['(##) ####-####']"
-                />
+                  v-model="cliente.num"/>
               </div>
               <div class="input-block">
                 <label for="signupEmail">Data de nascimento</label>
                 <input
                   name="data"
+                  v-model="cliente.nasc"
                   class="form-control"
                   type="date"
                   placeholder="Ex.: dd/mm/aaaa"
@@ -96,11 +100,11 @@
               </div>
               <div class="input-block">
                 <label for="signupPassword">Senha</label>
-                <input id="signupPassword" type="password" required />
+                <input id="signupPassword" type="password" v-model="cliente.senha" required />
               </div>
               <div class="input-block">
                 <label for="passwordConfirm">Confirmar Senha</label>
-                <input id="passwordConfirm" type="password" required /><br />
+                <input id="passwordConfirm" v-model="senha" type="password" required /><br />
                 <label> <p>Selecione o tipo de conta</p> </label><br />
                 <label
                   >Empresarial<input
@@ -155,19 +159,35 @@ switchers.forEach(item => {
 	})
 })*/
 export default {
+  async asyncData(){
+    const api = 'http://localhost:3000/alunos/'
+
+  },
   el: "#app",
 
   data() {
-    return { isTabActive: true };
-  },
-  data(){
     return {
+      isTabActive: true,
+      cliente:{
+        email:"",
+        nome:"",
+        num:"",
+        nasc:"",
+        senha:"",
+      },
+      senha:"",
 
-    }
+     };
+
   },
-  head: {
+
+  methods: {
+    criarConta(){
+      console.log(this.cliente)
+    }
+    },
+    head: {
     script: [
-      { src: "../scripts/login.js" },
       {
         src: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js",
       },
@@ -217,15 +237,8 @@ export default {
       },
     ],
   },
-  mounted(){
-    this.getCadastro()
-  },
-  methods: {
-    getCadastro(){
-      this.$axios.getCadastro
-    }
   }
-};
+
 </script>
 
 <style>

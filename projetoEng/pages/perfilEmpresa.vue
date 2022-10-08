@@ -1,6 +1,6 @@
 <template>
   <div>
-        <form action="" v-on:submit.prevent="checkform">
+        <form @submit.prevent="criarConta">
             <div class="nav-wrapper">
                 <div class="grad-bar"></div>
                 <nav class="navbar">
@@ -45,11 +45,11 @@
                         <div class="row mt-2">
                             <div>
                                 <label class="profileLabel"></label><input type="nome"  class="form-control"
-                                    placeholder="Nome da Empresa" v-model="nome">
+                                    placeholder="Nome da Empresa" v-model="empresa.nome">
                             </div>
 
                             <div><label class="profileLabel"></label><input type="email"
-                                    class="form-control" placeholder="Email para curriculum" v-model="email">
+                                    class="form-control" placeholder="Email para curriculum" v-model="empresa.email">
                             </div>
                         </div>
                         <div class="d-flex justify-content-between align-items-center experience">
@@ -88,24 +88,29 @@
                             <div class="row mt-3">
                                 <div class="col-md-12" required><label class="labels">Número de
                                         celular</label><input type="tel" name="celular" id="celular"
-                                        placeholder="Digite um celular de contato" class="form-control" maxlength="15" >
+                                        placeholder="Digite um celular de contato" class="form-control" maxlength="15"
+                                        v-model="empresa.num"
+>
                                 </div>
                                 <div class="col-md-12"><label class="labels">Número de
                                         telefone</label><input type="text" name="tel" id="phone"
                                         placeholder="Digite um fixo de contato" class="form-control" onkeypress="mask(this, mphone);
-                                                            " onblur="mask(this, mphone);" />
+                                                            " onblur="mask(this, mphone);"                        v-model="empresa.tel"
+/>
                                 </div>
                                 <div class="col-md-12"><label class="labels">Linkedin</label><input type="text"
-                                        name="linkedin" class="form-control" placeholder="Perfil da empresa" value="">
+                                        name="linkedin" class="form-control" placeholder="Perfil da empresa" value=""
+                                        v-model="empresa.link">
                                 </div>
                                 <div class="col-md-12"><label class="labels">Sites</label><input type="text"
-                                        name="sites" class="form-control" placeholder="Site da empresa" value="">
+                                        name="sites" class="form-control" placeholder="Site da empresa" value=""
+                                        v-model="empresa.site">
                                 </div>
 
                                 <div class="col-md-12"><label class="labels">Data de
                                         fundação</label><input name="data" class="form-control" type="date"
                                         placeholder="Ex.: dd/mm/aaaa" data-mask="00/00/0000" maxlength="8"
-                                        autocomplete="off">
+                                        autocomplete="off" v-model="empresa.funda">
                                 </div>
 
 
@@ -119,7 +124,7 @@
                             <div class="col-md-12"><label class="labelInfo">Sobre</label>
                                 <textarea type="text" name="sobre" class="form-control"
                                     placeholder="Conte um pouco sobre a cultura de sua empresa" value=""
-                                    maxlength="1000" style="height: 120px;"></textarea>
+                                    maxlength="1000" style="height: 120px;" v-model="empresa.sobre"></textarea>
                             </div>
                            <div id = "salvaPerfilE" class="mt-5 text-center"><button class="btn btn-primary profile-button"
                                 type="button">Salvar Perfil</button></div>
@@ -137,11 +142,7 @@
 
                             <button type="button" value="Add a field" class="add" id="add"
                                 onclick="addTextInput()">Add</button>
-                                <ul>
-                                  <li v-for="sede in sedes" :key="sede.id">
-                                      {{sede}}
-                                  </li>
-                                </ul>
+
                             <form id="myForm">
                                 <fieldset id="buildyourform" placeholder="Instituição - data de conclusão">
                                 </fieldset>
@@ -162,26 +163,28 @@
 
 <script>
 export default {
-  data(){
-    return{
-      sedes:["Ribeirão preto"]
-    }
+
+  data() {
+    return {
+      empresa:{
+        num:"",
+        tel:"",
+        sobre:"",
+        funda:"",
+        site:"",
+        link:"",
+        email:"",
+        nome:"",
+      },
+
+     };
+
   },
   methods: {
-    addTask() {
-        let newTask = {
-            atividade: "",
-            done: false
-        }
-        this.todolist.push(newTask)
+    criarConta(){
+      console.log(this.empresa)
+    }
     },
-    removeTask(index) {
-        this.todolist.splice(index,1)
-    },
-    sendForm() {
-        console.log(this.form)
-    },
-  },
   head: {
     script: [
     {src:"https://kit.fontawesome.com/01b3655c48.js"},
@@ -194,17 +197,7 @@ export default {
       {href:"https://cdn.jsdelivr.net/npm/pace-js@latest/pace-theme-default.min.css"},
     ]
   },
-  mounted(){
-    this.getSedes()
-  },
-  methods: {
-    getSedes() {
-      this.axios.get('sedes').then(res =>
-      {
-      this.sedes = res.data
-      })
-    }
-  }
+
 }
 </script>
 

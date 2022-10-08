@@ -241,6 +241,22 @@
 
 <script>
 export default {
+  data() {
+    return {
+      aluno:{
+        num:"",
+        tel:"",
+        sobre:"",
+        funda:"",
+        site:"",
+        link:"",
+        email:"",
+        nome:"",
+      },
+
+     };
+
+  },
   head: {
     script: [
     {src:"https://kit.fontawesome.com/01b3655c48.js"},
