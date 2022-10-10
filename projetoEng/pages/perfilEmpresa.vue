@@ -45,11 +45,11 @@
                         <div class="row mt-2">
                             <div>
                                 <label class="profileLabel"></label><input type="nome"  class="form-control"
-                                    placeholder="Nome da Empresa" v-model="empresa.nome">
+                                    placeholder="Nome da Empresa" v-model="empresa.nome" required>
                             </div>
 
                             <div><label class="profileLabel"></label><input type="email"
-                                    class="form-control" placeholder="Email para curriculum" v-model="empresa.email">
+                                    class="form-control" placeholder="Email para curriculum" v-model="empresa.email" required>
                             </div>
                         </div>
                         <div class="d-flex justify-content-between align-items-center experience">
@@ -63,11 +63,10 @@
                                 <form action="#" method="post">
                                     <div> <input style="margin-bottom: 30px;" type="text" id="newitem"
                                             placeholder="quant / setor - atuação" />
-                                        <button @click="addTask()">add</button>
+                                        <button>add</button>
 
                                     </div>
                                 </form>
-                                <ul @click:class="job" id="todolist"></ul>
                             </section>
                         </fieldset>
 
@@ -89,13 +88,11 @@
                                 <div class="col-md-12" required><label class="labels">Número de
                                         celular</label><input type="tel" name="celular" id="celular"
                                         placeholder="Digite um celular de contato" class="form-control" maxlength="15"
-                                        v-model="empresa.num"
->
+                                        v-model="empresa.num"      v-mask="['(##) ####-####']" required>
                                 </div>
                                 <div class="col-md-12"><label class="labels">Número de
                                         telefone</label><input type="text" name="tel" id="phone"
-                                        placeholder="Digite um fixo de contato" class="form-control" onkeypress="mask(this, mphone);
-                                                            " onblur="mask(this, mphone);"                        v-model="empresa.tel"
+                                        placeholder="Digite um fixo de contato" class="form-control" v-mask="['(##) ####-####']"     v-model="empresa.tel"
 />
                                 </div>
                                 <div class="col-md-12"><label class="labels">Linkedin</label><input type="text"
@@ -110,7 +107,7 @@
                                 <div class="col-md-12"><label class="labels">Data de
                                         fundação</label><input name="data" class="form-control" type="date"
                                         placeholder="Ex.: dd/mm/aaaa" data-mask="00/00/0000" maxlength="8"
-                                        autocomplete="off" v-model="empresa.funda">
+                                        autocomplete="off" v-model="empresa.funda" required>
                                 </div>
 
 
@@ -126,8 +123,9 @@
                                     placeholder="Conte um pouco sobre a cultura de sua empresa" value=""
                                     maxlength="1000" style="height: 120px;" v-model="empresa.sobre"></textarea>
                             </div>
-                           <div id = "salvaPerfilE" class="mt-5 text-center"><button class="btn btn-primary profile-button"
-                                type="button">Salvar Perfil</button></div>
+                           <div id = "salvaPerfilE" class="mt-5 text-center"><button
+                             class="btn btn-primary profile-button"
+                             type="submit">Salvar Perfil</button></div>
                         </div>
                     </div>
 
@@ -140,9 +138,10 @@
 
                             </div><br>
 
-                            <button type="button" value="Add a field" class="add" id="add"
-                                onclick="addTextInput()">Add</button>
+                            <button @click="input++" class="btn btn-outline-primary" type="button" style="min-width:150px;">Adicionar</button>
 
+                            <button @click="input--" class="btn btn-outline-secondary" type="button" style="min-width:150px;">Remover</button>
+                            <input v-for="i in input" :key="i" type="text" class="form-control" :id='"item"+i' style="max-width:300px; margin-top:5px" v-model="empresa.sede.at[i]">
                             <form id="myForm">
                                 <fieldset id="buildyourform" placeholder="Instituição - data de conclusão">
                                 </fieldset>
@@ -154,8 +153,8 @@
                 </div>
 
             </div>
+            <div class="logo"><a href="/home"><img class="imgLogo" src="../assets/SocialNetSobre_logo.png" alt="Company Logo" ></a></div>
         </form>
-        <div class="logo"><a href="/home"><img class="imgLogo" src="../assets/SocialNetSobre_logo.png" alt="Company Logo" ></a></div>
 
     </div>
 
@@ -175,8 +174,9 @@ export default {
         link:"",
         email:"",
         nome:"",
+        sede:"",
       },
-
+      input: 1,
      };
 
   },
@@ -184,6 +184,16 @@ export default {
     criarConta(){
       console.log(this.empresa)
     }
+    },
+    addTask() {
+        let newTask = {
+            atividade: "",
+            done: false
+        }
+        this.todolist.push(newTask)
+    },
+    removeTask(index) {
+        this.todolist.splice(index,1)
     },
   head: {
     script: [
@@ -238,8 +248,19 @@ h3 {
 
     background: none;
 }
+.btn-outline-primary{
+  background-color: #00e6328e;
+}
+.btn-outline-primary:hover{
+  background-color: #00e632e0;
+}
 
-
+.btn-outline-secondary{
+  background-color: #ce342fc2;
+}
+.btn-outline-secondary:hover{
+  background-color: #ce342f;
+}
 .search-btn {
 
 color: white;
@@ -452,12 +473,13 @@ text-decoration: none;
 }
 
 .logo {
-  position: absolute;
+  position: inherit;
     margin-top: -890px;
     max-height: 10px;
     padding-left: 30px;
 }
 .imgLogo{
+  position: inherit;
   width: 350px;
 }
 .profile-img {

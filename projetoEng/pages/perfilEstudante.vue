@@ -1,6 +1,6 @@
 <template>
 <div>
-<form id="perfilA">
+<form @submit.prevent="criarConta" >
         <div class="nav-wrapper">
                 <div class="grad-bar">
                         <div class="nav-wrapper">
@@ -53,12 +53,12 @@
                                                                 <label class="profileLabel"></label><input type="text"
                                                                         name="nome"
                                                                         class="form-control"
-                                                                        placeholder="Nome" required>
+                                                                        placeholder="Nome" v-model="aluno.nome" required>
                                                         </div>
 
                                                         <div><label class="profileLabel"></label><input type="text"
                                                                         name="email" class="form-control"
-                                                                        placeholder="Seu Email" required>
+                                                                        placeholder="Seu Email" v-model="aluno.email" required>
                                                         </div>
                                                 </div>
                                                 <div
@@ -102,38 +102,39 @@
                                                                                 celular</label><input type="tel"
                                                                                 name="celular" id="celular"
                                                                                 placeholder="Digite seu número de celular"
-                                                                                class="form-control" maxlength="15" required>
+                                                                                class="form-control" maxlength="15" v-mask="['(##) ####-####']" v-model="aluno.num" required>
                                                                 </div>
                                                                 <div class="col-md-12"><label class="labels">Número de
                                                                                 telefone</label><input type="text"
                                                                                 name="tel" id="phone"
                                                                                 placeholder="Digite seu número de telefone"
-                                                                                class="form-control" onkeypress="mask(this, mphone);
-                                                                " onblur="mask(this, mphone);" />
+                                                                                class="form-control"
+                                                                                v-model="aluno.tel" v-mask="['(##) ####-####']" />
                                                                 </div>
                                                                 <div class="col-md-12"><label
                                                                                 class="labels">Linkedin</label><input
                                                                                 type="text" name="linkedin"
                                                                                 class="form-control"
                                                                                 placeholder="Digite o nome de sua rua"
-                                                                                value="">
+                                                                                value="" v-model="aluno.link">
                                                                 </div>
                                                                 <div class="col-md-12"><label
                                                                                 class="labels">Sites</label><input
                                                                                 type="text" name="sites"
                                                                                 class="form-control"
                                                                                 placeholder="Digite o nome de sua rua"
-                                                                                value="">
+                                                                                value="" v-model="aluno.site">
                                                                 </div>
                                                                 <div class="col-md-12"><label
                                                                                 class="labels">Bairro</label><input
                                                                                 type="text" name="bairro"
                                                                                 class="form-control"
                                                                                 placeholder="Digite o numero de sua casa"
-                                                                                value="">
+                                                                                value="" v-model="aluno.bairro">
                                                                 </div>
                                                                 <div class="col-md-12"><label class="labels">Data de
                                                                                 nascimento</label><input name="data"
+                                                                                v-model="aluno.nasc"
                                                                                 class="form-control" type="date"
                                                                                 placeholder="Ex.: dd/mm/aaaa"
                                                                                 data-mask="00/00/0000" maxlength="8"
@@ -144,7 +145,7 @@
                                                                 <div class="col-md-12"><label
                                                                                 class="labels">Escolaridade</label>
                                                                         <select type="text" class="form-control"
-                                                                                value="">
+                                                                                value="" v-model="aluno.escolar">
                                                                                 <option>Ensino
                                                                                         Fundamental Incopleto </option>
                                                                                 <option>Ensino Fundamental Completo
@@ -165,11 +166,11 @@
                                                                                 name="cidade" type="text"
                                                                                 class="form-control"
                                                                                 placeholder="Digite sua cidade"
-                                                                                value=""></div>
+                                                                                value="" v-model="aluno.cidade"></div>
                                                                 <div class="col-md-6"><label
                                                                                 class="labels">Estado</label><select
                                                                                 type="text"
-                                                                                v-model="estado" class="form-control"
+                                                                                v-model="aluno.estado" class="form-control"
                                                                                 value=""
                                                                                 placeholder="Digite seu estado">
                                                                                 <option>AC</option>
@@ -202,7 +203,7 @@
                                                         </div>
                                                         <a href="./perfilCriadoA.html"><div id="salvarPerfilA" class="mt-5 text-center"><button
                                                                         class="btn btn-primary profile-button"
-                                                                        type="button">Salvar Perfil</button></div></a>
+                                                                        type="submit">Salvar Perfil</button></div></a>
                                                 </div>
                                         </div>
 
@@ -244,19 +245,27 @@ export default {
   data() {
     return {
       aluno:{
-        num:"",
-        tel:"",
-        sobre:"",
-        funda:"",
-        site:"",
-        link:"",
-        email:"",
-        nome:"",
+       nome:"",
+       email:"",
+       num:"",
+       tel:"",
+       link:"",
+       site:"",
+       bairro:"",
+       nasc:"",
+       cidade:"",
+       estado:"",
+       escolar:"",
       },
 
      };
 
   },
+  methods: {
+    criarConta(){
+      console.log(this.aluno)
+    }
+    },
   head: {
     script: [
     {src:"https://kit.fontawesome.com/01b3655c48.js"},

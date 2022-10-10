@@ -141,6 +141,8 @@
             <button onclick="" href="" type="submit" class="btn-signup">
               Continue
             </button>
+
+
           </form>
         </div>
         </div>
@@ -150,6 +152,8 @@
 </template>
 
 <script>
+import Aluno from '../services/alunos';
+
 /*const switchers = [...document.querySelectorAll('.switcher')]
 
 switchers.forEach(item => {
@@ -159,12 +163,6 @@ switchers.forEach(item => {
 	})
 })*/
 export default {
-  async asyncData(){
-    const api = 'http://localhost:3000/alunos/'
-
-  },
-  el: "#app",
-
   data() {
     return {
       isTabActive: true,
@@ -176,14 +174,29 @@ export default {
         senha:"",
       },
       senha:"",
-
      };
 
   },
-
+  mounted(){
+   /**  Aluno.listar().then(resposta =>{
+      console.log(resposta)
+    })*/
+  },
   methods: {
+
+    /**listar(){
+      Aluno.listar().then(resposta =>{
+      this.alunos = resposta.data
+      this.produtos =
+
+    })
+    }, */
     criarConta(){
-      console.log(this.cliente)
+      //console.log(this.cliente)
+     Aluno.criarConta(this.cliente).then(resposta =>{
+        alert('Salvo com sucesso')
+
+      })
     }
     },
     head: {
