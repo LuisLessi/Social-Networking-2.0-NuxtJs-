@@ -1,6 +1,6 @@
 <template>
   <div>
-        <form @submit.prevent="criarConta">
+        <form @submit.prevent="criarContaA">
             <div class="nav-wrapper">
                 <div class="grad-bar"></div>
                 <nav class="navbar">
@@ -11,10 +11,10 @@
                   </div>
                   <ul>
                    <div class="home">
-                    <li class="nav-item"><a href="feed.html">Home</a></li>
+                    <li class="nav-item"><a href="/home">Home</a></li>
                    </div>
                    <div class="perfil">
-                    <li class="nav-item"><a href="perfilEstudante.html">Perfil</a></li>
+                    <li class="nav-item"><a href="/perfilCriadoE">Perfil</a></li>
                    </div>
                    <div class="search-box">
                     <input class="search-txt" type="text" name="" placeholder="Procurar">
@@ -61,11 +61,13 @@
                             <section>
 
                                 <form action="#" method="post">
-                                    <div> <input style="margin-bottom: 30px;" type="text" id="newitem"
-                                            placeholder="quant / setor - atuação" />
-                                        <button>add</button>
+                                  <button @click="input2++" class="btn btn-outline-primary" type="button" style="min-width:110px;">Adicionar</button>
 
-                                    </div>
+      <button @click="input2--" class="btn btn-outline-secondary" type="button" style="min-width:110px;">Remover</button>
+
+
+    <input v-for="i in input2" :key="i" type="text" class="form-control" :id='"item"' style="max-width:240px; margin-top:5px" v-model="empresa.vagas[i]">
+
                                 </form>
                             </section>
                         </fieldset>
@@ -141,7 +143,8 @@
                             <button @click="input++" class="btn btn-outline-primary" type="button" style="min-width:150px;">Adicionar</button>
 
                             <button @click="input--" class="btn btn-outline-secondary" type="button" style="min-width:150px;">Remover</button>
-                            <input v-for="i in input" :key="i" type="text" class="form-control" :id='"item"+i' style="max-width:300px; margin-top:5px" v-model="empresa.sede.at[i]">
+
+                            <input v-for="i in input" :key="i" type="text" class="form-control" :id='"item"' style="max-width:800px; margin-top:5px" v-model="empresa.sede[i]">
                             <form id="myForm">
                                 <fieldset id="buildyourform" placeholder="Instituição - data de conclusão">
                                 </fieldset>
@@ -153,7 +156,7 @@
                 </div>
 
             </div>
-            <div class="logo"><a href="/home"><img class="imgLogo" src="../assets/SocialNetSobre_logo.png" alt="Company Logo" ></a></div>
+            <a href="/home"><div class="logo"><img class="imgLogo" src="../assets/SocialNetSobre_logo.png" alt="Company Logo" ></div></a>
         </form>
 
     </div>
@@ -161,12 +164,14 @@
 </template>
 
 <script>
+import Empresa from '../services/alunos';
+
 export default {
 
   data() {
     return {
       empresa:{
-        num:"",
+        num: cliente.nome,
         tel:"",
         sobre:"",
         funda:"",
@@ -174,26 +179,30 @@ export default {
         link:"",
         email:"",
         nome:"",
-        sede:"",
+        sede: [
+        this.input
+        ],
+        vagas: [
+        this.input2
+        ]
       },
-      input: 1,
+      input: 0,
+      input2: 0,
      };
 
   },
+  mounted(){
+    Empresa.listar().then(resposta =>{
+      console.log(resposta.data)
+      this.cliente = resposta.data
+    })
+  },
   methods: {
-    criarConta(){
-      console.log(this.empresa)
+    criarContaA(){
+      Empresa.criarContaA(this.empresa).then(resposta =>{
+        alert('Salvo com sucesso!')
+      })
     }
-    },
-    addTask() {
-        let newTask = {
-            atividade: "",
-            done: false
-        }
-        this.todolist.push(newTask)
-    },
-    removeTask(index) {
-        this.todolist.splice(index,1)
     },
   head: {
     script: [
@@ -205,6 +214,7 @@ export default {
     link:[
       {rel:"stylesheet", id:"bootstrap-css", src:"//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"},
       {href:"https://cdn.jsdelivr.net/npm/pace-js@latest/pace-theme-default.min.css"},
+      {href:"https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css", rel:"stylesheet", integrity:"sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi", crossorigin:"anonymous"}
     ]
   },
 
@@ -250,13 +260,18 @@ h3 {
 }
 .btn-outline-primary{
   background-color: #00e6328e;
+
 }
 .btn-outline-primary:hover{
   background-color: #00e632e0;
 }
 
+
+
 .btn-outline-secondary{
   background-color: #ce342fc2;
+  position: absolute;
+  margin-left: 20px;
 }
 .btn-outline-secondary:hover{
   background-color: #ce342f;

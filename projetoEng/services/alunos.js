@@ -5,8 +5,10 @@ export default {
   listar: () => {
     return http.get('alunos')
   },
-  criarConta: (aluno) => {
-    return http.post('aluno', aluno)
+  criarContaA: (aluno) => {
+    return http.post('alunos', aluno)
+  },
+  criarContaE: (empresa) => {
+    return http.post('empresa', empresa)
   }
-
 }

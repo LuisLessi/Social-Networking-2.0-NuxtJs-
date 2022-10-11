@@ -154,14 +154,6 @@
 <script>
 import Aluno from '../services/alunos';
 
-/*const switchers = [...document.querySelectorAll('.switcher')]
-
-switchers.forEach(item => {
-	item.addEventListener('click', function () {
-		switchers.forEach(item => item.parentElement.classList.remove('is-active'))
-		this.parentElement.classList.add('is-active')
-	})
-})*/
 export default {
   data() {
     return {
@@ -173,14 +165,15 @@ export default {
         nasc:"",
         senha:"",
       },
-      senha:"",
-     };
+      senha:""
+         };
 
   },
   mounted(){
-   /**  Aluno.listar().then(resposta =>{
-      console.log(resposta)
-    })*/
+   Aluno.listar().then(resposta =>{
+      console.log(resposta.data)
+      this.cliente = resposta.data
+    })
   },
   methods: {
 

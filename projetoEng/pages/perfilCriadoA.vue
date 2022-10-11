@@ -49,7 +49,7 @@
                                                     accept="image/*">
                                             <div class="row mt-2">
                                                     <div>
-                                                            <p class="nome">Luís Felipe Lessi Silva</p>
+                                                            <p class="nome" v-for="al of clientes" :key="al.id">{{al.nome}}</p>
                                                     </div>
 
                                                     <div><label class="profileLabel"></label><p class="email">
@@ -150,7 +150,20 @@
     </template>
 
 <script>
+import Aluno from '../services/alunos';
+
 export default {
+  data(){
+    return {
+      clientes: []
+    }
+  },
+  mounted(){
+    Aluno.listar().then(resposta =>{
+      console.log(resposta.data)
+      this.clientes.push(resposta.data)
+    })
+  },
   head: {
     script: [
     {src:"//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"},

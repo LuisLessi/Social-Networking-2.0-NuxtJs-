@@ -71,10 +71,12 @@
                                                         <section>
 
                                                                 <form action="#" method="post">
-                                                                        <div> <input type="text" id="newitem"
-                                                                                        placeholder=" Empresa / cargo - anos" />
-                                                                                <input type="submit" value="Add" />
+                                                                        <div> <button @click="input2++" class="btn btn-outline-primary" type="button" style="min-width:110px;">Adicionar</button>
 
+<button @click="input2--" class="btn btn-outline-secondary" type="button" style="min-width:110px;">Remover</button>
+
+
+<input v-for="i in input2" :key="i" type="text" class="form-control" :id='"item"' style="max-width:240px; margin-top:5px" v-model="aluno.exp[i]">
                                                                         </div>
                                                                 </form>
                                                                 <ul id="todolist"></ul>
@@ -201,9 +203,9 @@
                                                                                 <option>TO</option>
                                                                         </select></div>
                                                         </div>
-                                                        <a href="./perfilCriadoA.html"><div id="salvarPerfilA" class="mt-5 text-center"><button
-                                                                        class="btn btn-primary profile-button"
-                                                                        type="submit">Salvar Perfil</button></div></a>
+                                                        <div id = "salvaPerfilA" class="mt-5 text-center"><button
+                             class="btn btn-primary profile-button"
+                             type="submit">Salvar Perfil</button></div>
                                                 </div>
                                         </div>
 
@@ -216,14 +218,12 @@
                                                                 </span>
 
                                                         </div><br>
+                                                        <button @click="input++" class="btn btn-outline-primary" type="button" style="min-width:150px;">Adicionar</button>
 
-                                                        <button type="button" value="Add a field" class="add" id="add"
-                                                                onclick="addTextInput()">Add</button>
-                                              <form id="myForm">
-                                                                <fieldset id="buildyourform"
-                                                                        placeholder="Instituição - data de conclusão">
-                                                                </fieldset>
-                                                              </form>
+<button @click="input--" class="btn btn-outline-secondary" type="button" style="min-width:150px;">Remover</button>
+
+<input v-for="i in input" :key="i" type="text" class="form-control" :id='"item"' style="max-width:800px; margin-top:5px" v-model="aluno.cursos[i]">
+
                                                 </div>
 
                                         </div>
@@ -241,11 +241,13 @@
 </template>
 
 <script>
+import Aluno from '../services/alunos';
+
 export default {
   data() {
     return {
-      aluno:{
-       nome:"",
+      aluno:[{
+       nome: "",
        email:"",
        num:"",
        tel:"",
@@ -256,10 +258,32 @@ export default {
        cidade:"",
        estado:"",
        escolar:"",
-      },
-
+       exp:[
+        this.input2
+        ],
+        cursos:[
+          this.input
+        ]
+    }],
+      input: 0,
+      input2: 0,
      };
 
+  },
+
+  methods: {
+    criarConta(){
+
+      Aluno.criarConta(this.aluno).then(resposta =>{
+      alert('Salvo com sucesso')
+     })
+    }
+    },
+    mounted(){
+   Aluno.listar().then(resposta =>{
+      console.log(resposta.data)
+      this.nome = resposta.data
+    })
   },
   methods: {
     criarConta(){
@@ -643,7 +667,24 @@ h3 {
     box-shadow: 5px 5px 5px #eee;
     text-shadow: none;
 }
+.btn-outline-primary{
+  background-color: #00e6328e;
 
+}
+.btn-outline-primary:hover{
+  background-color: #00e632e0;
+}
+
+
+
+.btn-outline-secondary{
+  background-color: #ce342fc2;
+  position: absolute;
+  margin-left: 20px;
+}
+.btn-outline-secondary:hover{
+  background-color: #ce342f;
+}
 .fieldname {
     margin-top: 10px;
     width: 250px;
