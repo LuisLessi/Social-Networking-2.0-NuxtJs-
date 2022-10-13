@@ -38,19 +38,17 @@
         <div class="col-md-3 border-right">
             <div class="imageContainer">
                 <div class="imageContainer">
-                    <img src="../assets/camera.png" alt="Selecione uma imagem" id="imgPhoto">
+                    <img src="../assets/camera.png" alt="Selecione uma imagem" id="imgPhoto"  @change="uploadImage($event)" >
                 </div>
             </div>
-            <input class="invisibleInput" type="file" id="fImage" name="fImage" accept="image/*">
-            <div class="row mt-2">
-                <div>
-                    <p class="nome">Google</p>
+            <input type="file" accept="image/*" @change="uploadImage($event)" id="file-input">
+            <div>
+                    <p class="nome">{{clientes.nome}}</p>
             </div>
 
             <div><label class="profileLabel"></label><p class="email">
-                googlecontatos@google.com.br
+              {{clientes.email}}
             </p>
-            </div>
             </div>
             <div class="d-flex justify-content-between align-items-center experience">
                 <span>
@@ -141,22 +139,56 @@
 </template>
 
 <script>
-import Aluno from '../services/alunos';
+
+import Empresa from '../services/alunos';
 
 export default {
   data(){
     return {
+      selectedFile: null,
       clientes: [],
 
     }
 
   },
-  mounted(){
-    Aluno.listar().then(resposta =>{
-      console.log(resposta.data)
-      this.clientes = resposta.data[0]
-      })
-  },
+  methods: {
+
+uploadImage(event) {
+
+  const URL = 'http://foobar.com/upload';
+
+  let data = new FormData();
+  data.append('name', 'my-picture');
+  data.append('file', event.target.files[0]);
+
+  let config = {
+    header : {
+      'Content-Type' : 'image/png'
+    }
+  }
+
+  axios.put(
+    URL,
+    data,
+    config
+  ).then(
+    response => {
+      console.log('image upload response > ', response)
+    }
+  )
+}
+},
+  methods:{
+            uploadImage(e){
+                const image = e.target.files[0];
+                const reader = new FileReader();
+                reader.readAsDataURL(image);
+                reader.onload = e =>{
+                    this.previewImage = e.target.result;
+                    console.log(this.previewImage);
+                };
+            }
+        },
   head: {
     script: [
     {src:"//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"},
@@ -549,12 +581,9 @@ h3 {
 }
 
 .email {
-    padding-left: 10px;
+    padding-right: 30px;
 }
 
-.nome {
-    padding-left: 10px;
-}
 
 #btnEditar {
     padding-top: 130px;
@@ -572,7 +601,8 @@ h3 {
 }
 
 .invisibleInput {
-    display: none;
+  position: absolute;
+margin-top: -90px;
 }
 
 #imgPhoto {

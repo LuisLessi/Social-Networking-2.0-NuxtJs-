@@ -47,7 +47,7 @@
                                             </div>
                                           <input v-show = "false" class="invisibleInput" type="file" id="fImage" name="fImage"
                                                     accept="image/*">
-                                            <div class="row mt-2">
+
                                                     <div>
 
                                                       <p class="nome">{{clientes.nome}}</p>
@@ -56,20 +56,24 @@
                                                     <div class="email"><label class="profileLabel"></label><p>
                                                       {{clientes.email}}                                                    </p>
                                                     </div>
-                                            </div>
+
                                             <div
                                                     class="d-flex justify-content-between align-items-center experience">
                                                     <span>
                                                             <h3>Experiências</h3>
                                                     </span>
                                             </div><br>
-                                            <p v-for="exp of clientes.experiencia" :key="exp.experiencia">exp</p>
+                                            <form id="myForm" >
+                                              <pre>
+                                              <p >
+                                               + de 1 indice
+                                              </p>
 
-                                            <form id="myForm">
-
-
-
+                                              <p >1 indice</p>
+                                            </pre>
                                             </form>
+                                            <!--<p v-for="exp of clientes.experiencia" :key="exp">{{exp}}</p>
+                                              -->
                                     </div>
 
                                     <div id="meio" class="col-md-5 border-right">
@@ -159,10 +163,14 @@ import Aluno from '../services/alunos';
 export default {
   data(){
     return {
-      clientes: [],
 
     }
 
+  },
+  asyncData(){
+     return{
+       clientes: [],
+    }
   },
   mounted(){
     Aluno.listar().then(resposta =>{
@@ -589,13 +597,7 @@ h3 {
 }
 
 .email {
-    position: absolute;
-    padding-left: 10px;
-}
-
-.nome {
-    padding-left: 10px;
-    margin-top: 30px;
+    padding-right: 30px;
 }
 
 

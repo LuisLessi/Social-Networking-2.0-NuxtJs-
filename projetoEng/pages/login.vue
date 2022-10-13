@@ -82,13 +82,13 @@
                   class="form-control"
                   required
                   v-mask="['(##) ####-####']"
-                  v-model="cliente.num"/>
+                  v-model="cliente.celular"/>
               </div>
               <div class="input-block">
                 <label for="signupEmail">Data de nascimento</label>
                 <input
                   name="data"
-                  v-model="cliente.nasc"
+                  v-model="cliente.dataDeNascimento"
                   class="form-control"
                   type="date"
                   placeholder="Ex.: dd/mm/aaaa"
@@ -152,41 +152,33 @@
 </template>
 
 <script>
-import Aluno from '../services/alunos';
+import Usuario from '../services/alunos';
 
 export default {
   data() {
     return {
       isTabActive: true,
       cliente:{
-        email:"",
         nome:"",
-        num:"",
-        nasc:"",
+        email:"",
         senha:"",
+        celular:"",
+        dataDeNascimento:"",
       },
       senha:""
          };
 
   },
   mounted(){
-   Aluno.listar().then(resposta =>{
+    Usuario.listar().then(resposta =>{
       console.log(resposta.data)
       this.cliente = resposta.data
     })
   },
   methods: {
 
-    /**listar(){
-      Aluno.listar().then(resposta =>{
-      this.alunos = resposta.data
-      this.produtos =
-
-    })
-    }, */
     criarConta(){
-      //console.log(this.cliente)
-     Aluno.criarConta(this.cliente).then(resposta =>{
+      Usuario.criarConta(this.cliente).then(resposta =>{
         alert('Salvo com sucesso')
 
       })
@@ -688,5 +680,19 @@ p {
   100% {
     transform: rotate(359deg);
   }
+}
+
+::-webkit-scrollbar-track {
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar {
+    height: 6px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #3d4852;
+    border-radius: 3px;
 }
 </style>
