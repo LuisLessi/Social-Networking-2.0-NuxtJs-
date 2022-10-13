@@ -156,9 +156,8 @@
                 </div>
 
             </div>
-            <a href="/home"><div class="logo"><img class="imgLogo" src="../assets/SocialNetSobre_logo.png" alt="Company Logo" ></div></a>
         </form>
-
+        <div ><a href="/home"><img class="logo" src="../assets/SocialNetSobre_logo.png" alt="Company Logo" ></a></div>
     </div>
 
 </template>
@@ -171,7 +170,7 @@ export default {
   data() {
     return {
       empresa:{
-        num: cliente.nome,
+        num: "",
         tel:"",
         sobre:"",
         funda:"",
@@ -488,10 +487,11 @@ text-decoration: none;
 }
 
 .logo {
-  position: inherit;
-    margin-top: -890px;
-    max-height: 10px;
-    padding-left: 30px;
+  position: absolute;
+  top: 2%;
+  padding-left: 20px;
+  max-height: 40px;
+
 }
 .imgLogo{
   position: inherit;

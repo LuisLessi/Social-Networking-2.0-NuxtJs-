@@ -71,7 +71,8 @@
                                                         <section>
 
                                                                 <form action="#" method="post">
-                                                                        <div> <button @click="input2++" class="btn btn-outline-primary" type="button" style="min-width:110px;">Adicionar</button>
+                                                                        <div>
+                                                                          <button @click="input2++" class="btn btn-outline-primary" type="button" style="min-width:110px;">Adicionar</button>
 
 <button @click="input2--" class="btn btn-outline-secondary" type="button" style="min-width:110px;">Remover</button>
 
@@ -220,9 +221,9 @@
                                                         </div><br>
                                                         <button @click="input++" class="btn btn-outline-primary" type="button" style="min-width:150px;">Adicionar</button>
 
-<button @click="input--" class="btn btn-outline-secondary" type="button" style="min-width:150px;">Remover</button>
+                            <button @click="input--" class="btn btn-outline-secondary" type="button" style="min-width:150px;">Remover</button>
 
-<input v-for="i in input" :key="i" type="text" class="form-control" :id='"item"' style="max-width:800px; margin-top:5px" v-model="aluno.cursos[i]">
+                            <input v-for="i in input" :key="i" type="text" class="form-control" :id='"item"' style="max-width:800px; margin-top:5px" v-model="aluno.cursos[i]">
 
                                                 </div>
 
@@ -246,7 +247,7 @@ import Aluno from '../services/alunos';
 export default {
   data() {
     return {
-      aluno:[{
+      aluno:{
        nome: "",
        email:"",
        num:"",
@@ -264,22 +265,13 @@ export default {
         cursos:[
           this.input
         ]
-    }],
+    },
       input: 0,
       input2: 0,
      };
 
   },
-
-  methods: {
-    criarConta(){
-
-      Aluno.criarConta(this.aluno).then(resposta =>{
-      alert('Salvo com sucesso')
-     })
-    }
-    },
-    mounted(){
+  mounted(){
    Aluno.listar().then(resposta =>{
       console.log(resposta.data)
       this.nome = resposta.data
@@ -290,6 +282,8 @@ export default {
       console.log(this.aluno)
     }
     },
+
+
   head: {
     script: [
     {src:"https://kit.fontawesome.com/01b3655c48.js"},

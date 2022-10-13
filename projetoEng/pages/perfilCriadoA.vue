@@ -49,12 +49,12 @@
                                                     accept="image/*">
                                             <div class="row mt-2">
                                                     <div>
-                                                            <p class="nome" v-for="al of clientes" :key="al.id">{{al.nome}}</p>
+
+                                                      <p class="nome">{{clientes.nome}}</p>
                                                     </div>
 
-                                                    <div><label class="profileLabel"></label><p class="email">
-                                                        luisctiunesp@hotmail.com
-                                                    </p>
+                                                    <div class="email"><label class="profileLabel"></label><p>
+                                                      {{clientes.email}}                                                    </p>
                                                     </div>
                                             </div>
                                             <div
@@ -63,7 +63,7 @@
                                                             <h3>Experiências</h3>
                                                     </span>
                                             </div><br>
-
+                                            <p v-for="exp of clientes.experiencia" :key="exp.experiencia">exp</p>
 
                                             <form id="myForm">
 
@@ -85,34 +85,39 @@
 
                                                         <div class="cinza"><label
                                                                 class="labels">Número de
-                                                                celular</label><p class="labels">(16) 99792-9960</p>
+                                                                celular</label><p class="labels">{{clientes.celular}}</p>
 
                                                             </div>
                                                             <div class="col-md-12"><label>Número de
                                                                             telefone</label><p>(16) 3204-1519</p>
                                                             </div>
                                                             <div class="cinza"><label
-                                                                class="labels">Linkedin<p ><a href="https://www.linkedin.com/in/lu%C3%ADs-felipe-lessi-silva-9496aa1a1/" target="_blank">https://www.linkedin.com/in/lu%C3%ADs-felipe-lessi-silva-9496aa1a1/</a></p>
+                                                                class="labels">Linkedin<p ><a href="" target="_blank">{{clientes.linkedin}}</a></p>
                                                         </label>
                                                             </div>
                                                             <div class="col-md-12"><label
-                                                                            >Sites</label><p><a href="https://github.com/LuisLessi">https://github.com/LuisLessi</a></p>
+                                                                            >Sites</label><p v-for="site of clientes.sites" :key="site.sites"><a href="https://github.com/LuisLessi"
+                                                                >{{site}}</a></p>
                                                             </div>
                                                             <div class="cinza">
-                                                            <label
-                                                                            class="labels">Endereço</label><p class="labels">Jaboticabal</p><p class="bairro">Residencial</p><p class="sigla">SP</p>
-
+                                                                <label
+                                                                            class="labels">Endereço</label>
+                                                                <br>
+                                                                            <span class="labels"
+                                                                            v-for="endereco of clientes.endereco" :key="endereco.cidade">{{endereco}}</span>
+                                                                <br>
+                                                                <br>
                                                         </div>
 
                                                             <div class="col-md-12"><label class="data">Data de
-                                                                            nascimento</label><p class="nasc">18/06/2001</p>
+                                                                            nascimento</label><p class="nasc">{{clientes.dataDeNascimento}}</p>
 
                                                                         </div>
 
 
                                                     </div>
                                             </div>
-                                            <div class="cinza2"><label class="labels">Escolaridade</label><p class="labels">Superior completo</p>
+                                            <div class="cinza2"><label class="labels">Escolaridade</label><p class="labels">{{clientes.escolaridade}}</p>
                                             </div>
                                         <a href="./perfilEstudante.html"><div id="btnEditaA" class="mt-5 text-center"><button class="btn btn-primary profile-button"
                                                 type="button">Editar Perfil</button>
@@ -127,9 +132,8 @@
                                         <span>
                                             <h2>Formações/cursos</h2>
                                         </span>
-
                                     </div><br>
-
+                                    <p class="cursos" v-for="curso of clientes.cursos" :key="curso.cursos">{{curso}}</p>
 
                                     <form id="myForm">
                                         <fieldset id="buildyourform" placeholder="">
@@ -144,7 +148,7 @@
 
                     </div>
 </form>
-<a href="/home"><img src="../assets/SocialNetSobre_logo.png" class= "logo" alt="Company Logo"></a>
+<div ><a href="/home"><img class="logo" src="../assets/SocialNetSobre_logo.png" alt="Company Logo" ></a></div>
                 </div>
 
     </template>
@@ -155,14 +159,16 @@ import Aluno from '../services/alunos';
 export default {
   data(){
     return {
-      clientes: []
+      clientes: [],
+
     }
+
   },
   mounted(){
     Aluno.listar().then(resposta =>{
       console.log(resposta.data)
-      this.clientes.push(resposta.data)
-    })
+      this.clientes = resposta.data[0]
+      })
   },
   head: {
     script: [
@@ -299,7 +305,11 @@ h3 {
     word-break: break-word;
     padding-left: 30px;
 }
+.endereço{
+    word-break: break-word;
+    padding-left: 30px;
 
+}
 .bairro {
     position: absolute;
     padding-left: 180px;
@@ -337,7 +347,9 @@ h3 {
     top: 0;
     background-color: #fff;
 }
-
+.cursos{
+  padding-left: 35px;
+}
 .grad-bar {
     width: 100%;
     height: 5px;
@@ -439,10 +451,10 @@ h3 {
 
 .logo {
   position: absolute;
-  max-height: 37px;
-  margin-top: -900px;
-  max-width: 380px;
-  margin-left: 40px;
+  top: 2%;
+  padding-left: 20px;
+  max-height: 40px;
+
 }
 .profile-img {
     text-align: center;
@@ -564,9 +576,9 @@ h3 {
 }
 
 .profileLabel {
+  position: absolute;
     float: left;
-    display: block;
-    margin-left: 90px;
+
 }
 
 
@@ -577,11 +589,13 @@ h3 {
 }
 
 .email {
+    position: absolute;
     padding-left: 10px;
 }
 
 .nome {
     padding-left: 10px;
+    margin-top: 30px;
 }
 
 

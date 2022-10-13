@@ -136,12 +136,27 @@
 
 </div>
 </form>
-<a href="/home"><img src="../assets/SocialNetSobre_logo.png" class="logo" alt="Company Logo"></a>
+<div ><a href="/home"><img class="logo" src="../assets/SocialNetSobre_logo.png" alt="Company Logo" ></a></div>
 </div>
 </template>
 
 <script>
+import Aluno from '../services/alunos';
+
 export default {
+  data(){
+    return {
+      clientes: [],
+
+    }
+
+  },
+  mounted(){
+    Aluno.listar().then(resposta =>{
+      console.log(resposta.data)
+      this.clientes = resposta.data[0]
+      })
+  },
   head: {
     script: [
     {src:"//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"},
@@ -386,10 +401,10 @@ h3 {
 
 .logo {
   position: absolute;
-  max-height: 37px;
-  margin-top: -970px;
-  max-width: 380px;
-  margin-left: 40px;
+  top: 2%;
+  padding-left: 20px;
+  max-height: 40px;
+
 }
 
 .profile-img {
