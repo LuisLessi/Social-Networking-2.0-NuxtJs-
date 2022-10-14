@@ -102,11 +102,13 @@
                                                         <div class="row mt-3">
                                                                 <div class="col-md-12"><label
                                                                                 class="labels">Número de
-                                                                                celular</label><input type="tel"
+                                                                                celular</label><input type="number"
                                                                                 name="celular" id="celular"
                                                                                 placeholder="Digite seu número de celular"
-                                                                                class="form-control" maxlength="15" v-mask="['(##) ####-####']" v-model="aluno.num" required>
+                                                                                class="form-control" maxlength="11" v-mask="['###########']" v-model="aluno.celular" required>
+                                                                                <label for="signupPassword">Senha</label>
                                                                 </div>
+
                                                                 <div class="col-md-12"><label class="labels">Número de
                                                                                 telefone</label><input type="text"
                                                                                 name="tel" id="phone"
@@ -137,11 +139,14 @@
                                                                 </div>
                                                                 <div class="col-md-12"><label class="labels">Data de
                                                                                 nascimento</label><input name="data"
-                                                                                v-model="aluno.nasc"
-                                                                                class="form-control" type="date"
-                                                                                placeholder="Ex.: dd/mm/aaaa"
-                                                                                data-mask="00/00/0000" maxlength="8"
-                                                                                autocomplete="off" required>
+                                                                                type="number"
+                  v-model="aluno.dataDeNascimento"
+                  class="form-control"
+                  placeholder="aaaa/mm/dd"
+                  v-mask="['####-##-##T00:00:00.000Z']"
+                  maxlength="13"
+                  autocomplete="on"
+                  required>
                                                                 </div>
 
 
@@ -149,7 +154,7 @@
                                                                                 class="labels">Escolaridade</label>
                                                                         <select type="text" class="form-control"
                                                                                 value="" v-model="aluno.escolar">
-                                                                                <option>Ensino
+                                                                                <option >Ensino
                                                                                         Fundamental Incopleto </option>
                                                                                 <option>Ensino Fundamental Completo
                                                                                 </option>
@@ -250,12 +255,12 @@ export default {
       aluno:{
        nome: "",
        email:"",
-       num:"",
+       celular:"",
        tel:"",
        link:"",
        site:"",
        bairro:"",
-       nasc:"",
+       dataDeNascimento:"",
        cidade:"",
        estado:"",
        escolar:"",
@@ -271,16 +276,14 @@ export default {
      };
 
   },
-  mounted(){
-   Aluno.listar().then(resposta =>{
-      console.log(resposta.data)
-      this.nome = resposta.data
-    })
-  },
+
   methods: {
     criarConta(){
-      console.log(this.aluno)
-    }
+      Aluno.criarConta(this.aluno).then(resposta =>{
+        alert('Salvo com sucesso')
+
+      })
+    },
     },
 
 

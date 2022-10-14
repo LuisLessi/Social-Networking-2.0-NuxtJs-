@@ -36,12 +36,13 @@
             <div class="container rounded bg-white mt-5 mb-5">
                 <div class="row">
                     <div class="col-md-3 border-right">
-                        <div class="imageContainer">
+
                             <div class="imageContainer">
-                                <img src="../assets/camera.png" alt="Selecione uma imagem" id="imgPhoto">
+                                <img src="../assets/camera.png" alt="Selecione uma imagem" id="imgPhoto" @click="flImage.click()">
                             </div>
-                        </div>
-                        <input class="invisibleInput" type="file" id="fImage" name="fImage" accept="image/*">
+                        <input type="file" id="flImage" name="flImage" accept="image/*" @change="()=>{
+                          ;
+                          }">
                         <div class="row mt-2">
                             <div>
                                 <label class="profileLabel"></label><input type="nome"  class="form-control"
@@ -92,6 +93,7 @@
                                         placeholder="Digite um celular de contato" class="form-control" maxlength="15"
                                         v-model="empresa.num"      v-mask="['(##) ####-####']" required>
                                 </div>
+
                                 <div class="col-md-12"><label class="labels">Número de
                                         telefone</label><input type="text" name="tel" id="phone"
                                         placeholder="Digite um fixo de contato" class="form-control" v-mask="['(##) ####-####']"     v-model="empresa.tel"
@@ -201,7 +203,8 @@ export default {
       Empresa.criarContaA(this.empresa).then(resposta =>{
         alert('Salvo com sucesso!')
       })
-    }
+    },
+
     },
   head: {
     script: [
@@ -334,6 +337,9 @@ text-decoration: none;
     padding-right: 147px;
 }
 
+#flImage{
+  display: none;
+}
 
 .cinza2 {
     background-color: #eeeeee;
@@ -616,6 +622,7 @@ text-decoration: none;
     position: absolute;
     padding-top: 40px;
 }
+
 
 .escolar {
     position: absolute;

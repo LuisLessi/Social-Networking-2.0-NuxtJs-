@@ -31,7 +31,7 @@
                 </div>
 
                 <div class="input-block">
-                  <label for="login-password">Password</label>
+                  <label for="login-password">Senha</label>
                   <input
                     id="login-password"
                     type="password"
@@ -61,50 +61,46 @@
               </legend>
               <div class="input-block">
                 <label for="signupEmail">Nome completo</label>
-                <input
-                  class="label-nome"
-                  v-model="cliente.nome"
-                  id="signupEmail"
-                  type="nome"
-                  required
-                />
+                <input type="text"
+                                                                        name="nome"
+                                                                        class="form-control"
+                                                                        placeholder="Nome" v-model="aluno.nome" required>
               </div>
               <div class="input-block">
                 <label for="signupEmail">E-mail</label>
-                <input id="signupEmail" v-model="cliente.email" type="email" required />
+                <input type="text"
+                                                                        name="email" class="form-control"
+                                                                        placeholder="Seu Email" v-model="aluno.email" required>
               </div>
               <div class="input-block">
                 <label for="signupTel" >N° de celular</label>
-                <input
-                  type="text"
-                  name="tel"
-                  id="phone"
-                  class="form-control"
-                  required
-                  v-mask="['(##) ####-####']"
-                  v-model="cliente.celular"/>
+                <label
+                                                                                class="labels">Número de
+                                                                                celular</label><input type="number"
+                                                                                name="celular" id="celular"
+                                                                                placeholder="Digite seu número de celular"
+                                                                                class="form-control" maxlength="11" v-mask="['###########']" v-model="aluno.celular" required>
               </div>
               <div class="input-block">
                 <label for="signupEmail">Data de nascimento</label>
-                <input
-                  name="data"
-                  v-model="cliente.dataDeNascimento"
+                <input name="data"
+                                                                                type="number"
+                  v-model="aluno.dataDeNascimento"
                   class="form-control"
-                  type="date"
-                  placeholder="Ex.: dd/mm/aaaa"
-                  data-mask="00/00/0000"
-                  maxlength="8"
-                  autocomplete="off"
-                  required
-                />
+                  placeholder="aaaa/mm/dd"
+                  v-mask="['####-##-##T00:00:00.000Z']"
+                  maxlength="13"
+                  autocomplete="on"
+                  required>
               </div>
               <div class="input-block">
                 <label for="signupPassword">Senha</label>
-                <input id="signupPassword" type="password" v-model="cliente.senha" required />
+                <input id="signupPassword" type="password" v-model="aluno.senha" required />
+
               </div>
               <div class="input-block">
                 <label for="passwordConfirm">Confirmar Senha</label>
-                <input id="passwordConfirm" v-model="senha" type="password" required /><br />
+                <input id="passwordConfirm" type="password" placeholder="***********" required /><br />
                 <label> <p>Selecione o tipo de conta</p> </label><br />
                 <label
                   >Empresarial<input
@@ -158,27 +154,22 @@ export default {
   data() {
     return {
       isTabActive: true,
-      cliente:{
-        nome:"",
-        email:"",
-        senha:"",
-        celular:"",
-        dataDeNascimento:"",
+      aluno:{
+       nome:"",
+       senha:"",
+       email:"",
+       dataDeNascimento:"",
+       celular:"",
       },
       senha:""
          };
 
   },
-  mounted(){
-    Usuario.listar().then(resposta =>{
-      console.log(resposta.data)
-      this.cliente = resposta.data
-    })
-  },
+
   methods: {
 
     criarConta(){
-      Usuario.criarConta(this.cliente).then(resposta =>{
+      Usuario.criarConta(this.aluno).then(resposta =>{
         alert('Salvo com sucesso')
 
       })

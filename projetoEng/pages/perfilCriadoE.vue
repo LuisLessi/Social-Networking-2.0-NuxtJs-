@@ -38,10 +38,10 @@
         <div class="col-md-3 border-right">
             <div class="imageContainer">
                 <div class="imageContainer">
-                    <img src="../assets/camera.png" alt="Selecione uma imagem" id="imgPhoto"  @change="uploadImage($event)" >
+                    <img src="../assets/camera.png" alt="Selecione uma imagem" id="imgPhoto"  >
                 </div>
             </div>
-            <input type="file" accept="image/*" @change="uploadImage($event)" id="file-input">
+            <input type="file" accept="image/*" @input="pickFile" ref="fileInput">
             <div>
                     <p class="nome">{{clientes.nome}}</p>
             </div>
@@ -151,6 +151,14 @@ export default {
     }
 
   },
+
+  mounted(){
+    Empresa.listar().then(resposta =>{
+      console.log(resposta.data)
+      this.clientes = resposta.data[1]
+    })
+  },
+
   methods: {
 
 uploadImage(event) {
