@@ -41,13 +41,10 @@
 <div class="row">
 <div class="col-md-3 border-right">
                                                 <div class="imageContainer">
-                                                        <div class="imageContainer">
-                                                                <img src="../assets/camera.png" alt="Selecione uma imagem"
-                                                                        id="imgPhoto">
-                                                        </div>
+                                                  <img src="../assets/camera.png" alt="Selecione uma imagem" id="imgPhoto" ref="imgPhoto" class="imgPhoto" @click="imgPhotoLoad">
+                                <input type="file"  ref="flImage" id="flImage" name="flImage" class="flImage" @change="filePhotoLoad" accept="image/*">
                                                 </div>
-                                              <input class="invisibleInput" type="file" id="fImage" name="fImage"
-                                                        accept="image/*">
+
                                                 <div class="row mt-2">
                                                         <div>
                                                                 <label class="profileLabel"></label><input type="text"
@@ -284,6 +281,20 @@ export default {
 
       })
     },
+    imgPhotoLoad(){
+      this.$refs.flImage.click()
+    },
+    filePhotoLoad(){
+      if (this.$refs.flImage.files.length <= 0) {
+        return;
+    }
+    let reader = new FileReader();
+    reader.onload = () => {
+      this.$refs.imgPhoto.src = reader.result;
+    }
+    reader.readAsDataURL(this.$refs.flImage.files[0])
+    }
+
     },
 
 
@@ -523,7 +534,9 @@ h3 {
   max-height: 40px;
 
 }
-
+#flImage{
+  display: none;
+}
 .profile-img {
     text-align: center;
 }

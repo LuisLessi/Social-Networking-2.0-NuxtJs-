@@ -38,11 +38,10 @@
                     <div class="col-md-3 border-right">
 
                             <div class="imageContainer">
-                                <img src="../assets/camera.png" alt="Selecione uma imagem" id="imgPhoto" @click="flImage.click()">
+                                <img src="../assets/camera.png" alt="Selecione uma imagem" id="imgPhoto" ref="imgPhoto" class="imgPhoto" @click="imgPhotoLoad">
+                                <input type="file"  ref="flImage" id="flImage" name="flImage" class="flImage" @change="filePhotoLoad" accept="image/*">
                             </div>
-                        <input type="file" id="flImage" name="flImage" accept="image/*" @change="()=>{
-                          ;
-                          }">
+
                         <div class="row mt-2">
                             <div>
                                 <label class="profileLabel"></label><input type="nome"  class="form-control"
@@ -66,8 +65,8 @@
 
       <button @click="input2--" class="btn btn-outline-secondary" type="button" style="min-width:110px;">Remover</button>
 
-
-    <input v-for="i in input2" :key="i" type="text" class="form-control" :id='"item"' style="max-width:240px; margin-top:5px" v-model="empresa.vagas[i]">
+    <label v-if="empresa.vagas.maxlength < 0"> error</label>
+    <input v-else v-for="i in input2" :key="i" type="text" class="form-control" :id='"item"' style="max-width:240px; margin-top:5px" v-model="empresa.vagas[i]">
 
                                 </form>
                             </section>
@@ -187,11 +186,12 @@ export default {
         this.input2
         ]
       },
-      input: 0,
-      input2: 0,
+      input: 1,
+      input2: 1,
      };
 
   },
+
   mounted(){
     Empresa.listar().then(resposta =>{
       console.log(resposta.data)
@@ -204,6 +204,19 @@ export default {
         alert('Salvo com sucesso!')
       })
     },
+    imgPhotoLoad(){
+      this.$refs.flImage.click()
+    },
+    filePhotoLoad(){
+      if (this.$refs.flImage.files.length <= 0) {
+        return;
+    }
+    let reader = new FileReader();
+    reader.onload = () => {
+      this.$refs.imgPhoto.src = reader.result;
+    }
+    reader.readAsDataURL(this.$refs.flImage.files[0])
+    }
 
     },
   head: {
