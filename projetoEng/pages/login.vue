@@ -54,7 +54,7 @@
             </button>
 
             <!-- Form Cadastro-->
-          <form @submit.prevent="criarConta" class="form form-signup">
+              <form @submit.prevent="criarContaE" class="form form-signup">
             <fieldset>
               <legend>
                 Por favor, preencha os dados abaixo para se cadastrar.
@@ -64,19 +64,19 @@
                 <input type="text"
                                                                         name="nome"
                                                                         class="form-control"
-                                                                        placeholder="Nome" v-model="aluno.nome" required>
+                                                                        placeholder="Digite seu nome" v-model="aluno.nome" required>
               </div>
               <div class="input-block">
                 <label for="signupEmail">E-mail</label>
-                <input type="text"
+                <input type="email"
                                                                         name="email" class="form-control"
-                                                                        placeholder="Seu Email" v-model="aluno.email" required>
+                                                                        placeholder="Seuemail@exemplo.com" v-model="aluno.email" required>
               </div>
               <div class="input-block">
                 <label for="signupTel" >N° de celular</label>
                 <label
                                                                                 class="labels">Número de
-                                                                                celular</label><input type="number"
+                                                                                celular</label><input type="phone"
                                                                                 name="celular" id="celular"
                                                                                 placeholder="Digite seu número de celular"
                                                                                 class="form-control" maxlength="11" v-mask="['###########']" v-model="aluno.celular" required>
@@ -84,8 +84,8 @@
               <div class="input-block">
                 <label for="signupEmail">Data de nascimento</label>
                 <input name="data"
-                                                                                type="number"
-                  v-model="aluno.dataDeNascimento"
+                  type="string"
+                  v-model="aluno.dataDeFundacao"
                   class="form-control"
                   placeholder="aaaa/mm/dd"
                   v-mask="['####-##-##T00:00:00.000Z']"
@@ -95,7 +95,7 @@
               </div>
               <div class="input-block">
                 <label for="signupPassword">Senha</label>
-                <input id="signupPassword" type="password" v-model="aluno.senha" required />
+                <input id="signupPassword" type="password" placeholder="***********" v-model="aluno.senha" required />
 
               </div>
               <div class="input-block">
@@ -148,7 +148,8 @@
 </template>
 
 <script>
-import Usuario from '../services/alunos';
+import Aluno from '../services/alunos';
+import Empresa from '../services/empresas';
 
 export default {
   data() {
@@ -158,19 +159,28 @@ export default {
        nome:"",
        senha:"",
        email:"",
-       dataDeNascimento:"",
+       dataDeFundacao:"",
        celular:"",
+       tipoConta:"",
       },
-      senha:""
+      senha:"",
          };
 
   },
 
   methods: {
 
-    criarConta(){
-      Usuario.criarConta(this.aluno).then(resposta =>{
-        alert('Salvo com sucesso')
+    criarContaA(){
+      Aluno.criarContaA(this.aluno).then(resposta =>{
+        console.log(resposta.data)
+        alert('Conta aluno salvo com sucesso')
+
+      })
+    },
+    criarContaE(){
+        Empresa.criarContaE(this.aluno).then(resposta =>{
+        console.log(resposta.data)
+        alert('conta empresa salvo com sucesso')
 
       })
     }

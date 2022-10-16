@@ -3,16 +3,16 @@ import { http } from './config'
 export default {
 
   listar: () => {
-    return http.get('alunos') //GET
+    return http.get('alunos') //GET ALUNOS
   },
-  criarConta: (usuario) => {
-    return http.post('alunos', usuario) //POST
+  criarContaA: (usuario) => {
+    return http.post('alunos', usuario) //POST ALUNOS
   },
 
   atualizar: (usuario) => {
-    return http.put('alunos', usuario) //PUT
+    return http.put('alunos', usuario) //PUT ALUNOS
   },
   apagar: (usuario) => {
-    return http.delete('aluno', { data: usuario }) //Delete
+    return http.delete('aluno', { data: usuario }) //Delete ALUNOS
   }
 }
