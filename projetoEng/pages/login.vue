@@ -54,11 +54,55 @@
             </button>
 
             <!-- Form Cadastro-->
-              <form @submit.prevent="criarContaE" class="form form-signup">
+
+              <form @submit.prevent="criarContaA" class="form form-signup">
             <fieldset>
               <legend>
                 Por favor, preencha os dados abaixo para se cadastrar.
               </legend>
+              <div class="input-block">
+                <div v-if="checkedValue == 1">
+                <p>True empregado</p>
+                </div>
+                <div v-else>
+                  <p>True empresa</p>
+                  <p>mudou</p>
+
+                </div>
+                <label> <p>Selecione o tipo de conta</p> </label><br />
+                <label
+                  >Empregado<input
+                    name="tipoConta"
+                    id="contaE"
+                    type="radio"
+                    ref="contaE"
+                    value="1"
+                    :checked="checkedValue == '1'"
+                /></label>
+                <label></label>
+                <label></label>
+                <label></label>
+                <label></label>
+                <label></label>
+                <label></label>
+                <label></label>
+                <label></label>
+                <label></label>
+                <label></label>
+                <label></label>
+                <label></label>
+                <label></label>
+                <label></label>
+                <label></label>
+                <label
+                  >Empresarial<input
+                    name="tipoConta"
+                    id="contaA"
+                    type="radio"
+                    value="2"
+                    :checked="checkedValue == '2'"
+                /></label>
+              </div>
               <div class="input-block">
                 <label for="signupEmail">Nome completo</label>
                 <input type="text"
@@ -101,37 +145,7 @@
               <div class="input-block">
                 <label for="passwordConfirm">Confirmar Senha</label>
                 <input id="passwordConfirm" type="password" placeholder="***********" required /><br />
-                <label> <p>Selecione o tipo de conta</p> </label><br />
-                <label
-                  >Empresarial<input
-                    name="tipoConta"
-                    id="contaE"
-                    type="radio"
 
-                    checked
-                /></label>
-                <label></label>
-                <label></label>
-                <label></label>
-                <label></label>
-                <label></label>
-                <label></label>
-                <label></label>
-                <label></label>
-                <label></label>
-                <label></label>
-                <label></label>
-                <label></label>
-                <label></label>
-                <label></label>
-                <label></label>
-                <label
-                  >Empregado<input
-                    name="tipoConta"
-                    id="contaA"
-                    type="radio"
-
-                /></label>
               </div>
             </fieldset>
             <button onclick="" href="" type="submit" class="btn-signup">
@@ -161,13 +175,17 @@ export default {
        email:"",
        dataDeFundacao:"",
        celular:"",
-       tipoConta:"",
+       tipoConta: "",
+       checkedValue: "",
       },
       senha:"",
          };
 
   },
 
+  mounted(){
+				this.checkedValue = "2";
+			},
   methods: {
 
     criarContaA(){
