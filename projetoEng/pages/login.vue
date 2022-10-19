@@ -44,6 +44,7 @@
             </form>
           </div>
           <div class="form-wrapper" :class="{ 'is-active': !isTabActive }">
+            <fieldset>
             <button
               @click="isTabActive = !isTabActive"
               type="button"
@@ -54,30 +55,25 @@
             </button>
 
             <!-- Form Cadastro-->
+            <div v-if="tipoForm == 'Empresa'">
 
-              <form @submit.prevent="criarContaA" class="form form-signup">
+              <form @submit.prevent="criarContaE" class="form form-signup">
+
             <fieldset>
+
               <legend>
                 Por favor, preencha os dados abaixo para se cadastrar.
               </legend>
-              <div class="input-block">
-                <div v-if="checkedValue == 1">
-                <p>True empregado</p>
-                </div>
-                <div v-else>
-                  <p>True empresa</p>
-                  <p>mudou</p>
 
-                </div>
-                <label> <p>Selecione o tipo de conta</p> </label><br />
-                <label
+              <div class="input-block">
+                <label>Selecione o tipo de conta</label><br>
+               <label
                   >Empregado<input
+                  v-model="tipoForm"
                     name="tipoConta"
                     id="contaE"
                     type="radio"
-                    ref="contaE"
-                    value="1"
-                    :checked="checkedValue == '1'"
+                    value="Empregado"
                 /></label>
                 <label></label>
                 <label></label>
@@ -96,37 +92,39 @@
                 <label></label>
                 <label
                   >Empresarial<input
+                  v-model="tipoForm"
                     name="tipoConta"
                     id="contaA"
                     type="radio"
-                    value="2"
-                    :checked="checkedValue == '2'"
+                    value="Empresa"
                 /></label>
+
               </div>
-              <div class="input-block">
-                <label for="signupEmail">Nome completo</label>
+              <label> <img class="icon-empresa" src="../assets/empresa icon.png"> </label><br />
+                <div class="input-block">
+                <label for="signupEmail">Nome da empresa</label>
                 <input type="text"
                                                                         name="nome"
                                                                         class="form-control"
-                                                                        placeholder="Digite seu nome" v-model="aluno.nome" required>
+                                                                        placeholder="Digite o nome de sua empresa" v-model="aluno.nome" required>
               </div>
-              <div class="input-block">
-                <label for="signupEmail">E-mail</label>
+
+                <div class="input-block">
+                <label for="signupEmail">E-mail da Empresa</label>
                 <input type="email"
                                                                         name="email" class="form-control"
-                                                                        placeholder="Seuemail@exemplo.com" v-model="aluno.email" required>
+                                                                        placeholder="EmailEmpresarial@exemplo.com" v-model="aluno.email" required>
               </div>
               <div class="input-block">
-                <label for="signupTel" >N° de celular</label>
+                <label for="signupTel" >N° de celular da empresa</label>
                 <label
-                                                                                class="labels">Número de
-                                                                                celular</label><input type="phone"
+                                                                                class="labels"></label><input type="phone"
                                                                                 name="celular" id="celular"
-                                                                                placeholder="Digite seu número de celular"
+                                                                                placeholder="Digite um número de contato"
                                                                                 class="form-control" maxlength="11" v-mask="['###########']" v-model="aluno.celular" required>
               </div>
               <div class="input-block">
-                <label for="signupEmail">Data de nascimento</label>
+                <label for="signupEmail">Data de fundação</label>
                 <input name="data"
                   type="string"
                   v-model="aluno.dataDeFundacao"
@@ -145,15 +143,110 @@
               <div class="input-block">
                 <label for="passwordConfirm">Confirmar Senha</label>
                 <input id="passwordConfirm" type="password" placeholder="***********" required /><br />
-
+                <a href="/perfilEmpresa"><button onclick="" href="" type="submit" class="btn-signup">
+              Continue
+            </button></a>
               </div>
             </fieldset>
-            <button onclick="" href="" type="submit" class="btn-signup">
-              Continue
-            </button>
+              </form>
+            </div>
+             <div v-else>
+              <form @submit.prevent="criarContaA" class="form form-signup">
 
+<fieldset>
 
-          </form>
+  <legend>
+    Por favor, preencha os dados abaixo para se cadastrar.
+  </legend>
+
+  <div class="input-block">
+    <label>Selecione o tipo de conta</label><br>
+   <label
+      >Empregado<input
+      v-model="tipoForm"
+        name="tipoConta"
+        id="contaE"
+        type="radio"
+        value="Empregado"
+    /></label>
+    <label></label>
+    <label></label>
+    <label></label>
+    <label></label>
+    <label></label>
+    <label></label>
+    <label></label>
+    <label></label>
+    <label></label>
+    <label></label>
+    <label></label>
+    <label></label>
+    <label></label>
+    <label></label>
+    <label></label>
+    <label
+      >Empresarial<input
+      v-model="tipoForm"
+        name="tipoConta"
+        id="contaA"
+        type="radio"
+        value="Empresa"
+    /></label>
+
+  </div>
+  <label> <img class="icon-empresa" src="../assets/icon usuario.png"> </label><br />
+    <div class="input-block">
+    <label for="signupEmail">Nome completo</label>
+    <input type="text"
+                                                            name="nome"
+                                                            class="form-control"
+                                                            placeholder="Digite seu nome completo" v-model="aluno.nome" required>
+  </div>
+
+    <div class="input-block">
+    <label for="signupEmail">E-mail pessoal</label>
+    <input type="email"
+                                                            name="email" class="form-control"
+                                                            placeholder="SeuEmail@exemplo.com" v-model="aluno.email" required>
+  </div>
+  <div class="input-block">
+    <label for="signupTel" >N° de celular</label>
+    <label
+                                                                    class="labels"></label><input type="phone"
+                                                                    name="celular" id="celular"
+                                                                    placeholder="Digite seu número de celular"
+                                                                    class="form-control" maxlength="11" v-mask="['###########']" v-model="aluno.celular" required>
+  </div>
+  <div class="input-block">
+    <label for="signupEmail">Data de nascimento</label>
+    <input name="data"
+      type="string"
+      v-model="aluno.dataDeNascimento"
+      class="form-control"
+      placeholder="aaaa/mm/dd"
+      v-mask="['####-##-##T00:00:00.000Z']"
+      maxlength="13"
+      autocomplete="on"
+      required>
+  </div>
+  <div class="input-block">
+    <label for="signupPassword">Senha</label>
+    <input id="signupPassword" type="password" placeholder="***********" v-model="aluno.senha" required />
+
+  </div>
+  <div class="input-block">
+    <label for="passwordConfirm">Confirmar Senha</label>
+    <input id="passwordConfirm" type="password" placeholder="***********" required /><br />
+<a href="/perfilEstudante">
+    <button onclick="" href="" type="submit" class="btn-signup">
+  Continue
+</button></a>
+  </div>
+</fieldset>
+  </form>
+
+             </div>
+            </fieldset>
         </div>
         </div>
       </section>
@@ -174,18 +267,15 @@ export default {
        senha:"",
        email:"",
        dataDeFundacao:"",
+       dataDeNascimento:"",
        celular:"",
-       tipoConta: "",
-       checkedValue: "",
       },
       senha:"",
+      tipoForm: "Empregado",
          };
 
   },
 
-  mounted(){
-				this.checkedValue = "2";
-			},
   methods: {
 
     criarContaA(){
@@ -202,6 +292,7 @@ export default {
 
       })
     }
+
     },
     head: {
     script: [
@@ -321,7 +412,12 @@ body {
   align-items: flex-start;
   margin-top: 30px;
 }
+.icon-empresa{
+  width: 10%;
+  margin-left: -100px;
+  margin-right: -100px
 
+}
 .form-wrapper {
   animation: hideLayer 0.3s ease-out forwards;
 }

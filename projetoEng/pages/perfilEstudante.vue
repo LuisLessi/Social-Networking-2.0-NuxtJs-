@@ -222,7 +222,6 @@
 
                                                         </div><br>
                                                         <button @click="input++" class="btn btn-outline-primary" type="button" style="min-width:150px;">Adicionar</button>
-
                             <button @click="input--" class="btn btn-outline-secondary" type="button" style="min-width:150px;">Remover</button>
 
                             <input v-for="i in input" :key="i" type="text" class="form-control" :id='"item"' style="max-width:800px; margin-top:5px" v-model="aluno.cursos[i]">
@@ -268,8 +267,8 @@ export default {
           this.input
         ]
     },
-      input: 0,
-      input2: 0,
+      input: 1,
+      input2: 1,
      };
 
   },
