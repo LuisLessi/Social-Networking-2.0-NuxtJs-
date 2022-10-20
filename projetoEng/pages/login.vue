@@ -143,9 +143,9 @@
               <div class="input-block">
                 <label for="passwordConfirm">Confirmar Senha</label>
                 <input id="passwordConfirm" type="password" placeholder="***********" required /><br />
-                <a href="/perfilEmpresa"><button onclick="" href="" type="submit" class="btn-signup">
+                <button onclick="" href="" type="submit" class="btn-signup">
               Continue
-            </button></a>
+            </button>
               </div>
             </fieldset>
               </form>

@@ -99,7 +99,7 @@
                                                         <div class="row mt-3">
                                                                 <div class="col-md-12"><label
                                                                                 class="labels">Número de
-                                                                                celular</label><input type="number"
+                                                                                celular</label><input type="phone"
                                                                                 name="celular" id="celular"
                                                                                 placeholder="Digite seu número de celular"
                                                                                 class="form-control" maxlength="11" v-mask="['###########']" v-model="aluno.celular" required>
@@ -136,7 +136,7 @@
                                                                 </div>
                                                                 <div class="col-md-12"><label class="labels">Data de
                                                                                 nascimento</label><input name="data"
-                                                                                type="number"
+                                                                                type="string"
                   v-model="aluno.dataDeNascimento"
                   class="form-control"
                   placeholder="aaaa/mm/dd"

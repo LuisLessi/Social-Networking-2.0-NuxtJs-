@@ -23,7 +23,7 @@
           <li class="nav-item"><a href="/sobre">Sobre</a></li>
          </div>
          <div class="logout">
-         <li class="nav-item"><a href="index.html">Logout</a></li>
+         <li class="nav-item"><a href="/login">Logout</a></li>
         </div>
 
        </ul>
