@@ -112,7 +112,7 @@ body {
 
 .title {
     position: absolute;
-    margin-left: 400px;
+    margin-left: 700px;
     margin-top: 80px;
     color: #000000;
     font-family: 'Press Start 2P', cursive;
@@ -121,7 +121,7 @@ body {
 
 .text {
     position: absolute;
-    margin-left: 320px;
+    margin-left: 570px;
     margin-top: 140px;
     color: #000000;
     font-family: 'Cinzel', serif;
@@ -132,13 +132,13 @@ body {
     padding-left: 395px;
     max-height: 470px;
     padding-top: 410px;
-    margin-top: 55px;
+    margin-top: 255px;
 }
 
 .fatec {
     position: absolute;
-    padding-left: 990px;
-    margin-top: 460px;
+    padding-left: 1550px;
+    margin-top: 760px;
     height: 120px;
 }
 
@@ -157,6 +157,7 @@ body {
     font-family: 'Fredoka One', cursive;
     font-size: 15px;
     color: #FCDE38;
+
 }
 
 .grupo {
@@ -195,7 +196,7 @@ body {
 .numZap {
     position: absolute;
     max-height: 55px;
-    padding-top: 485px;
+    padding-top: 685px;
     padding-left: 470px;
     position: absolute;
 
@@ -206,7 +207,7 @@ body {
 .numZap2 {
     position: absolute;
     max-height: 55px;
-    padding-top: 435px;
+    padding-top: 635px;
     padding-left: 470px;
     position: absolute;
 
@@ -322,7 +323,7 @@ body {
     cursor: pointer;
 }
 .options{
-  padding-left: 600px;
+  padding-left: 1140px;
 }
 .search {
     transform: translate(-35%);
@@ -373,20 +374,19 @@ body {
 .logo{
   position: absolute;
   max-height: 37px;
-  margin-top: -517px;
+  margin-top: -600px;
   max-width: 380px;
   margin-left: 40px;
 
 }
 .logout {
-    margin-left: 790px;
     position: absolute;
     border-radius: 90px;
     padding-right: 10px;
     padding-left: 10px;
     margin-top: 13px;
     background-color: #eb1616;
-    margin-left: 1230px;
+    margin-left: 1780px;
 
 }
 
@@ -399,7 +399,7 @@ body {
     padding-top: -35px;
     margin-top: 13px;
     position: absolute;
-    margin-left: 1148px;
+    margin-left: 1690px;
     padding-left: 13px;
 
 
@@ -431,8 +431,8 @@ body {
     display: absolute;
     justify-content: center;
     align-items: flex-end;
-    width: 48%;
-    height: 58%;
+    width: 35%;
+    height: 62%;
     padding-top: 20px;
 }
 
@@ -480,12 +480,12 @@ body {
 .search-box {
 	position: absolute;
 	top: 30px;
-	left: 675px;
+	left: 960px;
 	transform: translate(-50%, -50%);
 	background-color: black;
 	height: 35px;
 	border-radius: 40px;
-	padding: 10px;
+	padding: 15px;
 }
 
 .search-box:hover>.search-txt {
@@ -507,7 +507,7 @@ body {
 	float: right;
 	width: 25px;
 	height: 25px;
-	margin-top: -5px;
+	margin-top: -11px;
 	border-radius: 50%;
 	background: #ed074c;
 	display: flex;
@@ -528,7 +528,7 @@ body {
 	transition: 0.3s;
 	line-height: 27px;
 	width: 380px;
-	margin-top: -7px;
+	margin-top: -11px;
 
 }
 
