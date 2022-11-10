@@ -68,12 +68,14 @@ export default {
       local: {
         endpoints: {
           login: { url: 'empresas/authenticate', method: 'post', propertyName: 'token' },
-          user: { url: '/alunos', method: 'get', propertyName: null }
+          user: { url: '/alunos', method: 'get', propertyName: false }
         }
       }
     },
     redirect: {
-      //  home: '/home'
+      home: '/home',
+      logout: '/',
+
     }
 
   },

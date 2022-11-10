@@ -327,9 +327,9 @@ export default {
     }},
     efetuarLogin(){
       this.$auth.loginWith("local", {
-        data: this.login }).then(
+        data: this.login}).then(
           () =>{
-           alert("Bem vindo", this.aluno.email)
+           alert("Bem vindo")
           }
         )
         .catch(
