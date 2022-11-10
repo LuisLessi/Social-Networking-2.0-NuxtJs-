@@ -74,7 +74,6 @@ export default {
     },
     redirect: {
       home: '/home',
-      logout: '/',
 
     }
 
