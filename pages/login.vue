@@ -330,6 +330,7 @@ export default {
         data: this.login}).then(
           () =>{
            alert("Bem vindo")
+
           }
         )
         .catch(
