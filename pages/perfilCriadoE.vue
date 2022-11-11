@@ -150,7 +150,7 @@
 import Empresa from '../services/empresas';
 
 export default {
-  //middleware: 'auth',
+  middleware: 'auth',
   data(){
     return {
 

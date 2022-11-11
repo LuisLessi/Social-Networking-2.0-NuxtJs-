@@ -298,7 +298,7 @@ Vue.use(VueTimeline, {
   theme: "light",
 });
 export default {
-  //middleware: 'auth',
+  middleware: 'auth',
   data() {
 
 

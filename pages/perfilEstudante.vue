@@ -265,7 +265,7 @@ import Aluno from '../services/alunos';
 import axios from 'axios';
 
 export default {
-  //middleware: 'auth',
+  middleware: 'auth',
   data() {
     return {
       aluno:{

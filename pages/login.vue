@@ -16,7 +16,7 @@
               Login
               <span class="underline"></span>
             </button>
-            <form  class="form form-login">
+            <form @submit.prevent="login" class="form form-login">
               <fieldset>
                 <legend>
                   Por favor, digite seu e-mail e senha para logar .
@@ -278,6 +278,7 @@
 <script>
 import Aluno from '../services/alunos';
 import Empresa from '../services/empresas';
+import { mapMutations } from "vuex";
 import { required, sameAs, minLength } from 'vuelidate/lib/validators'
 
 export default {
@@ -308,7 +309,6 @@ export default {
     }
   },
   methods: {
-
     criarContaA(){
      if(!this.senhaIncorreta){
       Aluno.criarContaA(this.aluno).then(resposta =>{
@@ -325,22 +325,55 @@ export default {
 
       })
     }},
-    efetuarLogin(){
+    ...mapMutations(["setUser", "setToken"]),
+   /**async login(e) {
+    e.preventDefault();
+      const response = await fetch("http://localhost:3000/empresas/authenticate",{
+        method: "POST",
+        headers:{
+          "Content-Type": "token",
+        },
+        body: JSON.stringify({
+        email: this.login.email,
+        senha: this.login.senha
+        })
+      });
+      const { user, token } = await response.json();
+      this.setUser(user);
+      this.setToken(token);
+    },*/
+    async efetuarLogin(e){
+      e.preventDefault();
+      const response = await fetch("http://localhost:3000/empresas/authenticate",{
+        method: "POST",
+        headers:{
+          "Content-Type": "token",
+        },
+        body: JSON.stringify({
+        email: this.login.email,
+        senha: this.login.senha
+        })
+      });
       this.$auth.loginWith("local", {
         data: this.login}).then(
           () =>{
            alert("Bem vindo")
-
+           this.$router.push("/home");
           }
         )
         .catch(
           erro =>{
+            this.$router.push("/login");
             console.log("erro!")
             console.log(erro)
-            alert(erro)
+            alert("Login incorreto")
           }
         )
-    }
+
+        const { user, token } = await response.json();
+      this.setUser(user);
+      this.setToken(token);
+      }
     },
     head: {
       title: 'Social Networking',

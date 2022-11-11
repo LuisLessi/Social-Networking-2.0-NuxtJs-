@@ -157,7 +157,7 @@
 import Aluno from '../services/alunos';
 
 export default {
-  //middleware: 'auth',
+  middleware: 'auth',
   data(){
     return {
 
