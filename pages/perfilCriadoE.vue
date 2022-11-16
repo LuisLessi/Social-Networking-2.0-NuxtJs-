@@ -1,778 +1,778 @@
 <template>
-<div id="app">
-<form id="perfilE">
-        <div class="nav-wrapper">
-                <div class="grad-bar"></div>
-                <nav class="navbar">
-                     <div class="menu-toggle" id="mobile-menu">
-                       <span class="bar"></span>
-                       <span class="bar"></span>
-                       <span class="bar"></span>
-                     </div>
-                     <ul>
-                      <div class="home">
-                       <li class="nav-item"><a href="/home">Home</a></li>
-                      </div>
-                      <div class="perfil">
-                       <li class="nav-item"><a href="/perfilEstudante">Perfil</a></li>
-                      </div>
-                      <div class="search-box">
-                        <input class="search-txt" type="text" name="" placeholder="Procurar">
-                        <a class="search-btn" href="#">
-                          <i class="fas fa-search"></i>
-                          </a>
-                        </div>
-                       <div class="sobre">
-                        <li class="nav-item"><a href="/home">Sobre</a></li>
+  <div id="app">
+  <form id="perfilE">
+          <div class="nav-wrapper">
+                  <div class="grad-bar"></div>
+                  <nav class="navbar">
+                       <div class="menu-toggle" id="mobile-menu">
+                         <span class="bar"></span>
+                         <span class="bar"></span>
+                         <span class="bar"></span>
                        </div>
-                       <div class="logout">
-                       <li class="nav-item"><a href="/login">Logout</a></li>
+                       <ul>
+                        <div class="home">
+                         <li class="nav-item"><a href="/home">Home</a></li>
+                        </div>
+                        <div class="perfil">
+                         <li class="nav-item"><a href="/perfilEstudante">Perfil</a></li>
+                        </div>
+                        <div class="search-box">
+                          <input class="search-txt" type="text" name="" placeholder="Procurar">
+                          <a class="search-btn" href="#">
+                            <i class="fas fa-search"></i>
+                            </a>
+                          </div>
+                         <div class="sobre">
+                          <li class="nav-item"><a href="/home">Sobre</a></li>
+                         </div>
+                         <div class="logout">
+                         <li class="nav-item"><a href="/login">Logout</a></li>
+                        </div>
+
+                       </ul>
+
+                     </nav>
+                     </div>
+  <div class="container rounded bg-white mt-5 mb-5">
+      <div class="row">
+          <div class="col-md-3 border-right">
+              <div class="imageContainer">
+                  <div class="imageContainer">
+                    <img :src= clientes.imagem alt="Selecione uma imagem" id="imgPhoto" ref="imgPhoto" class="imgPhoto">
+                  </div>
+              </div>
+              <div>
+                      <p class="nome">{{clientes.nome}}</p>
+              </div>
+
+              <div><label class="profileLabel"></label><p class="email">
+                {{clientes.email}}
+              </p>
+              </div>
+              <div class="d-flex justify-content-between align-items-center experience">
+                  <span>
+                      <h3 class="vagas">Vagas</h3>
+                  </span>
+              </div><br>
+              <fieldset id="fs">
+                  <section>
+
+
+                      <ul id="todolist"></ul>
+                  </section>
+              </fieldset>
+
+              <form id="myForm">
+
+
+
+              </form>
+          </div>
+
+          <div class="col-md-5 border-right">
+              <div class="p-3 py-5">
+                  <div class="d-flex justify-content-between align-items-center mb-3">
+                      <h4 class="text-right">Informações da empresa</h4>
+                  </div>
+
+
+                  <div class="row mt-3">
+                      <div class="col-md-12" required><label class="numCel">Número de
+                              celular</label>
+                      </div>
+                      <div class="col-md-12" required><label class="numCel">{{clientes.celular}}</label>
+                      </div>
+                      <div class="cinza"><label class="numTel">Número de
+                              telefone</label>
+                      </div>
+                      <div class="cinza">
+                      <p class="numTel">0800 047 4795</p>
+                      </div>
+                      <div class="col-md-12"><label class="numCel">Linkedin</label>
+                      </div>
+                      <div>
+                        <p class="linke"><a href="https://www.linkedin.com/company/google/jobs/" target="_blank">https://www.linkedin.com/company/google/jobs/</a></p>
+                      </div>
+                      <div class="cinza"><label class="numTel">Sites</label>
+                      </div>
+                      <div class="cinza"><p class="labels2"><a href="#">https://careers.google.com/?src=Online%2FLinkedIn%2Flinkedin_profilepage&utm_campaign=profilepage&utm_medium=profilepage&utm_source=linkedin</a></p>
+                      </div>
+                      <div class="labels3"><label>Data de
+                              fundação</label>
+                      </div>
+                      <div>
+                        <p class="dataValue">{{clientes.dataDeFundacao}}</p>
                       </div>
 
-                     </ul>
-
-                   </nav>
-                   </div>
-<div class="container rounded bg-white mt-5 mb-5">
-    <div class="row">
-        <div class="col-md-3 border-right">
-            <div class="imageContainer">
-                <div class="imageContainer">
-                  <img :src= clientes.imagem alt="Selecione uma imagem" id="imgPhoto" ref="imgPhoto" class="imgPhoto">
-                </div>
-            </div>
-            <div>
-                    <p class="nome">{{clientes.nome}}</p>
-            </div>
-
-            <div><label class="profileLabel"></label><p class="email">
-              {{clientes.email}}
-            </p>
-            </div>
-            <div class="d-flex justify-content-between align-items-center experience">
-                <span>
-                    <h3 class="vagas">Vagas</h3>
-                </span>
-            </div><br>
-            <fieldset id="fs">
-                <section>
 
 
-                    <ul id="todolist"></ul>
-                </section>
-            </fieldset>
+                  </div>
 
-            <form id="myForm">
+                  <div class="col-md-12"><label class="labelInfo">Sobre</label>
+                      <textarea type="text" name="sobre" class="form-control"
+                      placeholder="Um problema não é realmente resolvido até que seja resolvido para todos. O Google cria produtos que ajudam a criar oportunidades para todos, seja na rua ou em todo o mundo. Traga sua visão, imaginação e um saudável desrespeito pelo impossível. Traga tudo o que o torna único. Juntos, podemos construir para todos." value=""
+                      maxlength="1000" style="height: 120px;" disabled="disabled"></textarea>
+                  </div>
 
+                  <a href="./perfilEmpresa.html"><div id="btnEditaE" class="mt-5 text-center"><button class="btn btn-primary profile-button"
+                          type="button">Editar Perfil</button></div></a>
+              </div>
+          </div>
 
+          <div class="col-md-4">
+              <div class="p-3 py-5">
+                  <div class="d-flex justify-content-between align-items-center experience">
+                      <span>
+                          <h2>Sedes da empresa</h2>
+                      </span>
 
-            </form>
-        </div>
-
-        <div class="col-md-5 border-right">
-            <div class="p-3 py-5">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4 class="text-right">Informações da empresa</h4>
-                </div>
-
-
-                <div class="row mt-3">
-                    <div class="col-md-12" required><label class="numCel">Número de
-                            celular</label>
-                    </div>
-                    <div class="col-md-12" required><label class="numCel">{{clientes.celular}}</label>
-                    </div>
-                    <div class="cinza"><label class="numTel">Número de
-                            telefone</label>
-                    </div>
-                    <div class="cinza">
-                    <p class="numTel">0800 047 4795</p>
-                    </div>
-                    <div class="col-md-12"><label class="numCel">Linkedin</label>
-                    </div>
-                    <div>
-                      <p class="linke"><a href="https://www.linkedin.com/company/google/jobs/" target="_blank">https://www.linkedin.com/company/google/jobs/</a></p>
-                    </div>
-                    <div class="cinza"><label class="numTel">Sites</label>
-                    </div>
-                    <div class="cinza"><p class="labels2"><a href="#">https://careers.google.com/?src=Online%2FLinkedIn%2Flinkedin_profilepage&utm_campaign=profilepage&utm_medium=profilepage&utm_source=linkedin</a></p>
-                    </div>
-                    <div class="labels3"><label>Data de
-                            fundação</label>
-                    </div>
-                    <div>
-                      <p class="dataValue">{{clientes.dataDeFundacao}}</p>
-                    </div>
+                  </div><br>
 
 
+                  <form id="myForm">
+                      <fieldset id="buildyourform" placeholder="">
+                      </fieldset>
+                    </form>
+              </div>
 
-                </div>
+          </div>
 
-                <div class="col-md-12"><label class="labelInfo">Sobre</label>
-                    <textarea type="text" name="sobre" class="form-control"
-                    placeholder="Um problema não é realmente resolvido até que seja resolvido para todos. O Google cria produtos que ajudam a criar oportunidades para todos, seja na rua ou em todo o mundo. Traga sua visão, imaginação e um saudável desrespeito pelo impossível. Traga tudo o que o torna único. Juntos, podemos construir para todos." value=""
-                    maxlength="1000" style="height: 120px;" disabled="disabled"></textarea>
-                </div>
+      </div>
 
-                <a href="./perfilEmpresa.html"><div id="btnEditaE" class="mt-5 text-center"><button class="btn btn-primary profile-button"
-                        type="button">Editar Perfil</button></div></a>
-            </div>
-        </div>
+  </div>
+  </form>
+  <div ><a href="/home"><img class="logo" src="../assets/SocialNetSobre_logo.png" alt="Company Logo" ></a></div>
+  </div>
+  </template>
 
-        <div class="col-md-4">
-            <div class="p-3 py-5">
-                <div class="d-flex justify-content-between align-items-center experience">
-                    <span>
-                        <h2>Sedes da empresa</h2>
-                    </span>
+  <script>
 
-                </div><br>
+  import Empresa from '../services/empresas';
 
+  export default {
+    middleware: 'auth',
+    data(){
+      return {
 
-                <form id="myForm">
-                    <fieldset id="buildyourform" placeholder="">
-                    </fieldset>
-                  </form>
-            </div>
+      }
 
-        </div>
+    },
+    asyncData(){
+       return{
+         clientes: [],
+      }
+    },
 
-    </div>
+    mounted(){
+      Empresa.listar().then(resposta =>{
+        console.log(resposta.data)
+        this.clientes = resposta.data[12]
+      })
+    },
 
-</div>
-</form>
-<div ><a href="/home"><img class="logo" src="../assets/SocialNetSobre_logo.png" alt="Company Logo" ></a></div>
-</div>
-</template>
+    methods:{
 
-<script>
+          },
+    head: {
+      title: 'Perfil Empresa',
+      script: [
+      {src:"//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"},
+      {src:"https://kit.fontawesome.com/01b3655c48.js", crossorigin:"anonymous"},
+      {src:"https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"},
+      ],
+      link:[
+        {src:"//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"},
+        {src:"https://use.fontawesome.com/releases/v5.7.1/css/all.css",integrity:"sha384-fnmOCqbT1WI1j8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr", crossorigin:"anonymous"},
+        {href:"https://cdn.jsdelivr.net/npm/pace-js@latest/pace-theme-default.min.css", rel:"stylesheet"},
 
-import Empresa from '../services/empresas';
-
-export default {
-  middleware: 'auth',
-  data(){
-    return {
-
+      ]
     }
-
-  },
-  asyncData(){
-     return{
-       clientes: [],
-    }
-  },
-
-  mounted(){
-    Empresa.listar().then(resposta =>{
-      console.log(resposta.data)
-      this.clientes = resposta.data[12]
-    })
-  },
-
-  methods:{
-
-        },
-  head: {
-    title: 'Perfil Empresa',
-    script: [
-    {src:"//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"},
-    {src:"https://kit.fontawesome.com/01b3655c48.js", crossorigin:"anonymous"},
-    {src:"https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"},
-    ],
-    link:[
-      {src:"//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"},
-      {src:"https://use.fontawesome.com/releases/v5.7.1/css/all.css",integrity:"sha384-fnmOCqbT1WI1j8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr", crossorigin:"anonymous"},
-      {href:"https://cdn.jsdelivr.net/npm/pace-js@latest/pace-theme-default.min.css", rel:"stylesheet"},
-
-    ]
   }
-}
 
-</script>
+  </script>
 
-<style>
-body {
-    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
-}
+  <style>
+  body {
+      background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+  }
 
-h2 {
-    margin-left: 30px;
-}
+  h2 {
+      margin-left: 30px;
+  }
 
-h3 {
-    margin-left: 80px;
+  h3 {
+      margin-left: 80px;
 
-}
+  }
 
-.search-box {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgb(0, 0, 0);
-    height: 15px;
-    border-radius: 40px;
-    padding: 18px;
+  .search-box {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgb(0, 0, 0);
+      height: 15px;
+      border-radius: 40px;
+      padding: 18px;
 
-}
+  }
 
-.search-box:hover>.search-txt {
+  .search-box:hover>.search-txt {
 
-    width: 240px;
-    padding: 0 5px;
+      width: 240px;
+      padding: 0 5px;
 
-}
+  }
 
-.search-box:hover>.search-btn {
+  .search-box:hover>.search-btn {
 
-    background: none;
-}
+      background: none;
+  }
 
 
-.search-btn {
+  .search-btn {
 
-  color: white;
-    float: right;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: #ed074c;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    margin-top: -13px;
-    margin-left: 10px
-
-}
-
-.search-txt {
-    border: none;
-    background: none;
-    outline: none;
-    float: left;
-    padding: 0;
     color: white;
-    font-size: 15px;
-    transition: 0.3s;
-    line-height: 27px;
-    width: 380px;
-    margin-top: -13px;
+      float: right;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #ed074c;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      margin-top: -13px;
+      margin-left: 10px
 
-}
+  }
 
-.perfil {
-    background-color: #00a2e8;
-    border-radius: 4px;
-    padding-left: 15px;
-    margin-bottom: 14px;
-    margin-top: 10px;
-    padding-bottom: -30px;
-    margin-left: 10px;
+  .search-txt {
+      border: none;
+      background: none;
+      outline: none;
+      float: left;
+      padding: 0;
+      color: white;
+      font-size: 15px;
+      transition: 0.3s;
+      line-height: 27px;
+      width: 380px;
+      margin-top: -13px;
 
-}
+  }
 
-.home {
-    margin-left: 30px;
-    margin-bottom: 1px;
-    margin-top: 11px;
-}
+  .perfil {
+      background-color: #00a2e8;
+      border-radius: 4px;
+      padding-left: 15px;
+      margin-bottom: 14px;
+      margin-top: 10px;
+      padding-bottom: -30px;
+      margin-left: 10px;
 
-.sobre {
+  }
+
+  .home {
+      margin-left: 30px;
+      margin-bottom: 1px;
+      margin-top: 11px;
+  }
+
+  .sobre {
+      padding-left: 20px;
+      padding-top: 10px;
+  }
+
+
+
+  .labelsCinza1 {
+      position: relative;
+      padding-left: 30px;
+      padding-top: 30px;
+  }
+
+  .logout {
+      margin-right: 10px;
+      border-radius: 90px;
+      background-color: #eb1616;
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-bottom: -30px;
+      margin-bottom: 14px;
+      margin-top: 10px;
+  }
+
+  .pesquisar {
+      margin-left: 20px;
+      margin-right: -5px;
+  }
+
+  .nav-wrapper {
+      width: 100%;
+      position: -webkit-sticky;
+      /* Safari */
+      position: static;
+      top: 0;
+      background-color: #fff;
+  }
+  .linke{
+
+    padding-left: 3px;
+  }
+  .grad-bar {
+      width: 100%;
+      height: 5px;
+      background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+
+  }
+
+  .navbar img {
+      height: 70px;
+      width: auto;
+      justify-self: start;
+      margin-left: 20px;
+  }
+
+  .navbar ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      justify-self: end;
+      margin-right: -120px;
+
+  }
+
+  .nav-item a {
+      color: #000;
+      font-size: 15px;
+      font-weight: 400;
+      transition: color 0.3s ease-out;
+  }
+
+  .nav-item a:hover {
+      color: #3498db;
+  }
+
+  .navbar {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      align-items: center;
+      height: 50px;
+      overflow: hidden;
+  }
+
+  #search-icon {
+      font-size: 0.9rem;
+      margin-top: 3px;
+      margin-left: 15px;
+      transition: color 0.3s ease-out;
+  }
+
+  #search-icon:hover {
+      color: #3498db;
+      cursor: pointer;
+  }
+
+  /* MOBILE MENU & ANIMATION */
+
+  .menu-toggle .bar {
+      width: 25px;
+      height: 3px;
+      background-color: #3f3f3f;
+      margin: 5px auto;
+      -webkit-transition: all 0.3s ease-in-out;
+      -o-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+  }
+
+  #mobile-menu.is-active .bar:nth-child(2) {
+      opacity: 0;
+  }
+
+  #mobile-menu.is-active .bar:nth-child(1) {
+      -webkit-transform: translateY(8px) rotate(45deg);
+      -ms-transform: translateY(8px) rotate(45deg);
+      -o-transform: translateY(8px) rotate(45deg);
+      transform: translateY(8px) rotate(45deg);
+  }
+
+  #mobile-menu.is-active .bar:nth-child(3) {
+      -webkit-transform: translateY(-8px) rotate(-45deg);
+      -ms-transform: translateY(-8px) rotate(-45deg);
+      -o-transform: translateY(-8px) rotate(-45deg);
+      transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .fieldname {
+      margin-top: 10px;
+      width: 250px;
+      word-wrap: break-word;
+  }
+
+  .numCel{
+    margin-left: 0px;
+  }
+  .dataValue{
+    margin-left: 5px;
+
+  }
+  .numTel{
+    margin-left: 20px;
+  }
+  .numcelCont{
+    padding-left: -300px;
+  }
+  .emp-profile {
+      padding: 3%;
+      margin-top: 3%;
+      margin-bottom: 3%;
+      border-radius: 0.5rem;
+      background: #fff;
+  }
+
+  .logo {
+    position: absolute;
+    top: 2%;
     padding-left: 20px;
-    padding-top: 10px;
-}
+    max-height: 40px;
+
+  }
+
+  .profile-img {
+      text-align: center;
+  }
+
+  .profile-img img {
+      width: 70%;
+      height: 100%;
+  }
+
+  .profile-img .file {
+      position: relative;
+      overflow: hidden;
+      margin-top: -20%;
+      width: 70%;
+      border: none;
+      border-radius: 0;
+      font-size: 15px;
+      background: #212529b8;
+  }
+
+  .profile-img .file input {
+      position: absolute;
+      opacity: 0;
+      right: 0;
+      top: 0;
+  }
+
+  .profile-head h5 {
+      color: #333;
+  }
+
+  .profile-head h6 {
+      color: #0062cc;
+  }
+
+  .profile-edit-btn {
+      border: none;
+      border-radius: 1.5rem;
+      width: 70%;
+      padding: 2%;
+      font-weight: 600;
+      color: #6c757d;
+      cursor: pointer;
+  }
 
 
+  .proile-rating {
+      font-size: 12px;
+      color: #818182;
+      margin-top: 5%;
+  }
 
-.labelsCinza1 {
-    position: relative;
-    padding-left: 30px;
-    padding-top: 30px;
-}
+  .proile-rating span {
+      color: #495057;
+      font-size: 15px;
+      font-weight: 600;
+  }
 
-.logout {
-    margin-right: 10px;
-    border-radius: 90px;
-    background-color: #eb1616;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: -30px;
-    margin-bottom: 14px;
-    margin-top: 10px;
-}
+  .profile-head .nav-tabs {
+      margin-bottom: 5%;
+  }
 
-.pesquisar {
-    margin-left: 20px;
-    margin-right: -5px;
-}
+  .profile-head .nav-tabs .nav-link {
+      font-weight: 600;
+      border: none;
+  }
 
-.nav-wrapper {
-    width: 100%;
-    position: -webkit-sticky;
-    /* Safari */
-    position: static;
-    top: 0;
-    background-color: #fff;
-}
-.linke{
+  .profile-head .nav-tabs .nav-link.active {
+      border: none;
+      border-bottom: 2px solid #0062cc;
+  }
 
-  padding-left: 3px;
-}
-.grad-bar {
-    width: 100%;
-    height: 5px;
-    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+  .profile-work {
+      padding: 14%;
+      margin-top: -15%;
+  }
 
-}
+  .profile-work p {
+      font-size: 12px;
+      color: #818182;
+      font-weight: 600;
+      margin-top: 10%;
+  }
 
-.navbar img {
-    height: 70px;
-    width: auto;
-    justify-self: start;
-    margin-left: 20px;
-}
+  .profile-work a {
+      text-decoration: none;
+      color: #495057;
+      font-weight: 600;
+      font-size: 14px;
+  }
 
-.navbar ul {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    justify-self: end;
-    margin-right: -120px;
+  .profile-work ul {
+      list-style: none;
+  }
 
-}
+  .profile-tab label {
+      font-weight: 600;
+  }
 
-.nav-item a {
-    color: #000;
-    font-size: 15px;
-    font-weight: 400;
-    transition: color 0.3s ease-out;
-}
+  .cidade {
+      position: absolute;
+      margin-bottom: 90px;
+      margin-left: 160px;
+  }
 
-.nav-item a:hover {
-    color: #3498db;
-}
+  .bairro {
+      position: absolute;
+      padding-left: 16px;
+  }
 
-.navbar {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    align-items: center;
-    height: 50px;
-    overflow: hidden;
-}
+  .data {
+      position: absolute;
+      padding-top: 10px;
+  }
 
-#search-icon {
-    font-size: 0.9rem;
-    margin-top: 3px;
-    margin-left: 15px;
-    transition: color 0.3s ease-out;
-}
+  .nasc {
+      position: absolute;
+      padding-top: 40px;
+  }
 
-#search-icon:hover {
-    color: #3498db;
-    cursor: pointer;
-}
+  .escolar {
+      position: absolute;
+      padding-top: 90px;
+      padding-left: 34px;
+  }
+  Label {
+      float: left;
+      display: block;
+      margin-left: 90px;
+  }
 
-/* MOBILE MENU & ANIMATION */
+  .endere {
+      margin-left: 16px;
+  }
 
-.menu-toggle .bar {
-    width: 25px;
-    height: 3px;
-    background-color: #3f3f3f;
-    margin: 5px auto;
-    -webkit-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-}
+  .formacoes {
+      position: absolute;
+      padding-bottom: 40px;
+  }
 
-#mobile-menu.is-active .bar:nth-child(2) {
-    opacity: 0;
-}
+  .email {
+      padding-right: 30px;
+  }
 
-#mobile-menu.is-active .bar:nth-child(1) {
-    -webkit-transform: translateY(8px) rotate(45deg);
-    -ms-transform: translateY(8px) rotate(45deg);
-    -o-transform: translateY(8px) rotate(45deg);
-    transform: translateY(8px) rotate(45deg);
-}
 
-#mobile-menu.is-active .bar:nth-child(3) {
-    -webkit-transform: translateY(-8px) rotate(-45deg);
-    -ms-transform: translateY(-8px) rotate(-45deg);
-    -o-transform: translateY(-8px) rotate(-45deg);
-    transform: translateY(-8px) rotate(-45deg);
-}
+  #btnEditar {
+      padding-top: 130px;
+      margin-bottom: -100px
+  }
 
-.fieldname {
-    margin-top: 10px;
-    width: 250px;
-    word-wrap: break-word;
-}
+  .curso {
+      position: absolute;
+      padding-top: 15px;
+  }
 
-.numCel{
-  margin-left: 0px;
-}
-.dataValue{
-  margin-left: 5px;
+  .profile-tab p {
+      font-weight: 600;
+      color: #0062cc;
+  }
 
-}
-.numTel{
-  margin-left: 20px;
-}
-.numcelCont{
-  padding-left: -300px;
-}
-.emp-profile {
-    padding: 3%;
-    margin-top: 3%;
-    margin-bottom: 3%;
-    border-radius: 0.5rem;
-    background: #fff;
-}
-
-.logo {
-  position: absolute;
-  top: 2%;
-  padding-left: 20px;
-  max-height: 40px;
-
-}
-
-.profile-img {
-    text-align: center;
-}
-
-.profile-img img {
-    width: 70%;
-    height: 100%;
-}
-
-.profile-img .file {
-    position: relative;
-    overflow: hidden;
-    margin-top: -20%;
-    width: 70%;
-    border: none;
-    border-radius: 0;
-    font-size: 15px;
-    background: #212529b8;
-}
-
-.profile-img .file input {
+  .invisibleInput {
     position: absolute;
-    opacity: 0;
-    right: 0;
-    top: 0;
-}
+  margin-top: -90px;
+  }
 
-.profile-head h5 {
-    color: #333;
-}
+  #imgPhoto {
+      margin-top: 10%;
+      margin-left: 30px;
+      width: 200px;
+      height: 200px;
+      padding: 10px;
+      background-color: #eee;
+      border: 5px solid #ccc;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background .3s;
+  }
 
-.profile-head h6 {
-    color: #0062cc;
-}
+  #imgPhoto:hover {
+      background-color: rgb(180, 180, 180);
+      border: 5px solid #111;
+  }
 
-.profile-edit-btn {
-    border: none;
-    border-radius: 1.5rem;
-    width: 70%;
-    padding: 2%;
-    font-weight: 600;
-    color: #6c757d;
-    cursor: pointer;
-}
+  .form-submit-button {
+      background: #B9DFFF;
+      color: #fff;
+      border: 1px solid #eee;
+      border-radius: 20px;
+      box-shadow: 5px 5px 5px #eee;
+      text-shadow: none;
+  }
 
+  .fieldname {
+      margin-top: 10px;
+      width: 250px;
+      word-wrap: break-word;
+  }
 
-.proile-rating {
-    font-size: 12px;
-    color: #818182;
-    margin-top: 5%;
-}
+  /** TELA DE LOADING **/
+  .pace {
+      -webkit-pointer-events: none;
+      pointer-events: none;
 
-.proile-rating span {
-    color: #495057;
-    font-size: 15px;
-    font-weight: 600;
-}
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
 
-.profile-head .nav-tabs {
-    margin-bottom: 5%;
-}
+      z-index: 2000;
+      position: fixed;
+      height: 90px;
+      width: 90px;
+      margin: auto;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+  }
 
-.profile-head .nav-tabs .nav-link {
-    font-weight: 600;
-    border: none;
-}
+  .pace.pace-inactive .pace-activity {
+      display: none;
+  }
 
-.profile-head .nav-tabs .nav-link.active {
-    border: none;
-    border-bottom: 2px solid #0062cc;
-}
+  .pace .pace-activity {
+      position: fixed;
+      z-index: 2000;
+      display: block;
+      position: absolute;
+      left: -30px;
+      top: -30px;
+      height: 90px;
+      width: 90px;
+      display: block;
+      border-width: 30px;
+      border-style: double;
+      border-color: #ed074c transparent transparent;
+      border-radius: 50%;
 
-.profile-work {
-    padding: 14%;
-    margin-top: -15%;
-}
+      -webkit-box-sizing: content-box;
+      -moz-box-sizing: content-box;
+      box-sizing: content-box;
 
-.profile-work p {
-    font-size: 12px;
-    color: #818182;
-    font-weight: 600;
-    margin-top: 10%;
-}
+      -webkit-animation: spin 1s linear infinite;
+      -moz-animation: spin 1s linear infinite;
+      -o-animation: spin 1s linear infinite;
+      animation: spin 1s linear infinite;
+  }
 
-.profile-work a {
-    text-decoration: none;
-    color: #495057;
-    font-weight: 600;
-    font-size: 14px;
-}
+  .pace .pace-activity:before {
+      content: ' ';
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      height: 50px;
+      width: 50px;
+      display: block;
+      border-width: 10px;
+      border-style: solid;
+      border-color: #ed074c transparent transparent;
+      border-radius: 50%;
 
-.profile-work ul {
-    list-style: none;
-}
+      -webkit-box-sizing: content-box;
+      -moz-box-sizing: content-box;
+      box-sizing: content-box;
+  }
 
-.profile-tab label {
-    font-weight: 600;
-}
+  @-webkit-keyframes spin {
+      100% {
+          -webkit-transform: rotate(359deg);
+      }
+  }
 
-.cidade {
-    position: absolute;
-    margin-bottom: 90px;
-    margin-left: 160px;
-}
+  @-moz-keyframes spin {
+      100% {
+          -moz-transform: rotate(359deg);
+      }
+  }
 
-.bairro {
-    position: absolute;
-    padding-left: 16px;
-}
+  @-o-keyframes spin {
+      100% {
+          -moz-transform: rotate(359deg);
+      }
+  }
 
-.data {
-    position: absolute;
-    padding-top: 10px;
-}
+  @keyframes spin {
+      100% {
+          transform: rotate(359deg);
+      }
+  }
 
-.nasc {
-    position: absolute;
-    padding-top: 40px;
-}
+  ::-webkit-scrollbar-track {
+      background-color: #F5F5F5;
+  }
 
-.escolar {
-    position: absolute;
-    padding-top: 90px;
-    padding-left: 34px;
-}
-Label {
-    float: left;
-    display: block;
-    margin-left: 90px;
-}
+  ::-webkit-scrollbar {
+      height: 6px;
+      background-color: #F5F5F5;
+  }
 
-.endere {
-    margin-left: 16px;
-}
+  ::-webkit-scrollbar-thumb {
+      background-color: #3d4852;
+      border-radius: 3px;
+  }
 
-.formacoes {
-    position: absolute;
-    padding-bottom: 40px;
-}
+  .sigla {
+      display: absolute;
+      margin-left: 330px;
+      margin-top: 0px;
+  }
 
-.email {
-    padding-right: 30px;
-}
+  .estado {
+      position: absolute;
+      margin-top: -43px;
+      margin-left: 320px;
+  }
 
+  .cinza {
+      min-width: 474px;
+      margin-left: -16px;
+      background-color: #eeeeee;
+  }
 
-#btnEditar {
-    padding-top: 130px;
-    margin-bottom: -100px
-}
-
-.curso {
-    position: absolute;
-    padding-top: 15px;
-}
-
-.profile-tab p {
-    font-weight: 600;
-    color: #0062cc;
-}
-
-.invisibleInput {
-  position: absolute;
-margin-top: -90px;
-}
-
-#imgPhoto {
-    margin-top: 10%;
-    margin-left: 30px;
-    width: 200px;
-    height: 200px;
-    padding: 10px;
-    background-color: #eee;
-    border: 5px solid #ccc;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background .3s;
-}
-
-#imgPhoto:hover {
-    background-color: rgb(180, 180, 180);
-    border: 5px solid #111;
-}
-
-.form-submit-button {
-    background: #B9DFFF;
-    color: #fff;
-    border: 1px solid #eee;
-    border-radius: 20px;
-    box-shadow: 5px 5px 5px #eee;
-    text-shadow: none;
-}
-
-.fieldname {
-    margin-top: 10px;
-    width: 250px;
-    word-wrap: break-word;
-}
-
-/** TELA DE LOADING **/
-.pace {
-    -webkit-pointer-events: none;
-    pointer-events: none;
-
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-
-    z-index: 2000;
-    position: fixed;
-    height: 90px;
-    width: 90px;
-    margin: auto;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-}
-
-.pace.pace-inactive .pace-activity {
-    display: none;
-}
-
-.pace .pace-activity {
-    position: fixed;
-    z-index: 2000;
-    display: block;
-    position: absolute;
-    left: -30px;
-    top: -30px;
-    height: 90px;
-    width: 90px;
-    display: block;
-    border-width: 30px;
-    border-style: double;
-    border-color: #ed074c transparent transparent;
-    border-radius: 50%;
-
-    -webkit-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    box-sizing: content-box;
-
-    -webkit-animation: spin 1s linear infinite;
-    -moz-animation: spin 1s linear infinite;
-    -o-animation: spin 1s linear infinite;
-    animation: spin 1s linear infinite;
-}
-
-.pace .pace-activity:before {
-    content: ' ';
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    height: 50px;
-    width: 50px;
-    display: block;
-    border-width: 10px;
-    border-style: solid;
-    border-color: #ed074c transparent transparent;
-    border-radius: 50%;
-
-    -webkit-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    box-sizing: content-box;
-}
-
-@-webkit-keyframes spin {
-    100% {
-        -webkit-transform: rotate(359deg);
-    }
-}
-
-@-moz-keyframes spin {
-    100% {
-        -moz-transform: rotate(359deg);
-    }
-}
-
-@-o-keyframes spin {
-    100% {
-        -moz-transform: rotate(359deg);
-    }
-}
-
-@keyframes spin {
-    100% {
-        transform: rotate(359deg);
-    }
-}
-
-::-webkit-scrollbar-track {
-    background-color: #F5F5F5;
-}
-
-::-webkit-scrollbar {
-    height: 6px;
-    background-color: #F5F5F5;
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: #3d4852;
-    border-radius: 3px;
-}
-
-.sigla {
-    display: absolute;
-    margin-left: 330px;
-    margin-top: 0px;
-}
-
-.estado {
-    position: absolute;
-    margin-top: -43px;
-    margin-left: 320px;
-}
-
-.cinza {
-    min-width: 474px;
-    margin-left: -16px;
-    background-color: #eeeeee;
-}
-
-.labels {
+  .labels {
+      word-break: break-word;
+      padding-left: 30px;
+  }
+  .labels2{
     word-break: break-word;
-    padding-left: 30px;
-}
-.labels2{
-  word-break: break-word;
-  padding-left: 20px;
-}
-.labels3{
-  word-break: break-word;
-  margin-left: -86px;
-}
-.labelInfo {
-    padding-left: 80px;
-}
-</style>
+    padding-left: 20px;
+  }
+  .labels3{
+    word-break: break-word;
+    margin-left: -86px;
+  }
+  .labelInfo {
+      padding-left: 80px;
+  }
+  </style>

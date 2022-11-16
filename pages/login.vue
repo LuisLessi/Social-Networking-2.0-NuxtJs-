@@ -42,6 +42,7 @@
                 </div>
 
               </fieldset>
+              <!--<button id="myBtn" v-show="false">Teste</button>-->
               <button @click="efetuarLogin" type="submit" class="btn-login">Login</button>
             </form>
           </div>
@@ -306,8 +307,19 @@ export default {
   computed: {
     senhaIncorreta(){
       return this.aluno.senha != this.aluno.senhaConfirm
-    }
+
+    },
+
   },
+ /**  mounted(){
+
+    if(this.login.email != ""){
+      this.$nextTick(() => {
+   document.getElementById('myBtn').click()
+   alert("Teste") })
+  }
+
+  },*/
   methods: {
     criarContaA(){
      if(!this.senhaIncorreta){
@@ -326,6 +338,7 @@ export default {
       })
     }},
     ...mapMutations(["setUser", "setToken"]),
+
    /**async login(e) {
     e.preventDefault();
       const response = await fetch("http://localhost:3000/empresas/authenticate",{
@@ -373,6 +386,7 @@ export default {
         const { user, token } = await response.json();
       this.setUser(user);
       this.setToken(token);
+
       }
     },
     head: {

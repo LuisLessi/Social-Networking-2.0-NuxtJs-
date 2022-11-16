@@ -75,6 +75,7 @@ export default {
     redirect: {
       home: '/home',
 
+
     }
 
   },

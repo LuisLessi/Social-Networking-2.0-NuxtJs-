@@ -54,7 +54,7 @@
       <div class="photo2"><a href="https://github.com/Ezequiel-Lima" target="_blank"><img id="profile" src="../assets/quiel.jpg" title="Ezequiel"></a></div>
     </div>
     <div>
-    <p class="Eraldo">Desenvolvedor Front-End <br>utilizando vueJS com <br>base em UX/UI.<br>------------------------------</p>
+    <p class="Eraldo">Documentador do código e <br> da estrutura/tecnologias<br> utilizadas no projeto.<br>------------------------------</p>
       <div class="photo3"><a href="#footer"><img id="profile" src="../assets/Eraldo.jpg" title="Eraldo"></a></div>
     </div>
     <div>
@@ -62,7 +62,7 @@
       <div class="photo3"><a href="https://github.com/iCondition" target="_blank"><img id="profile" src="../assets/Gabriel.jpg"  title="Gabriel" ></a></div>
     </div>
     <div>
-    <p class="ruan">Desenvolvedor Front-End <br>utilizando vueJS com <br>base em UX/UI.<br>------------------------------</p>
+    <p class="ruan">Auxiliar do desenvolvimento <br>Back-End do projeto<br>------------------------------</p>
       <div class="photoRuan"><a href="https://www.linkedin.com/in/ruan-corsi-129246238" target="_blank"><img id="profile" src="../assets/ruan.jpg" title="Ruan"></a></div>
     </div>
     <div class="search-box">

@@ -27,7 +27,7 @@
           <li class="nav-item"><a href="/sobre">Sobre</a></li>
          </div>
          <div class="logout">
-         <li class="nav-item"><a href="/login">Logout</a></li>
+         <li class="nav-item"><a  href="/login">Logout</a></li>
         </div>
 
        </ul>
@@ -79,7 +79,9 @@
 </template>
 
 <script>
+
 export default {
+
   middleware: 'auth',
   head: {
     title: 'Home',
@@ -90,7 +92,8 @@ export default {
     link: [
       {rel:"stylesheet", href:"https://cdn.jsdelivr.net/npm/pace-js@latest/pace-theme-default.min.css"},
   ]
-}
+},
+
 }
 </script>
 

@@ -119,9 +119,9 @@
                                             </div>
                                             <div class="cinza2"><label class="labels">Escolaridade</label><p class="labels">{{clientes.escolaridade}}</p>
                                             </div>
-                                        <a href="./perfilEstudante.html"><div id="btnEditaA" class="mt-5 text-center"><button class="btn btn-primary profile-button"
-                                                type="button">Editar Perfil</button>
-                                    </div> </a>
+                                        <div id="btnEditaA" class="mt-5 text-center"><a href="perfilEstudante"><button class="btn btn-primary profile-button"
+                                                type="button">Editar Perfil</button></a>
+                                    </div>
                     <div class="col-md-12">
 
                                     </div>
@@ -172,7 +172,7 @@ export default {
   mounted(){
     Aluno.listar().then(resposta =>{
       console.log(resposta.data)
-      this.clientes = resposta.data[34]
+      this.clientes = resposta.data[63]
       })
   },
   methods:{
