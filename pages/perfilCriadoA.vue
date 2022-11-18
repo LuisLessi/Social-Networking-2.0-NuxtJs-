@@ -40,8 +40,17 @@
 <div class="row">
 <div class="col-md-3 border-right">
   <div class="imageContainer">
-                                                  <img :src= clientes.imagem alt="Selecione uma imagem" id="imgPhoto" ref="imgPhoto" class="imgPhoto">
+
+                                              <div v-if="clientes.imagem == null">
+                                                <img src="../assets/camera.png" alt="Selecione uma imagem" id="imgPhoto" ref="imgPhoto" class="imgPhoto">
                                 <input type="file"  ref="flImage" id="flImage" name="flImage" class="flImage" @change="filePhotoLoad" accept="image/*">
+                                              </div >
+
+                                              <div v-else>
+                                                <img :src= clientes.imagem alt="Selecione uma imagem" id="imgPhoto" ref="imgPhoto" class="imgPhoto">
+                                <input type="file"  ref="flImage" id="flImage" name="flImage" class="flImage" @change="filePhotoLoad" accept="image/*">
+                                                                            </div>
+
                                                 </div>
                                           <input v-show = "false" class="invisibleInput" type="file" id="fImage" name="fImage"
                                                     accept="image/*">
@@ -119,13 +128,15 @@
                                             </div>
                                             <div class="cinza2"><label class="labels">Escolaridade</label><p class="labels">{{clientes.escolaridade}}</p>
                                             </div>
-                                        <div id="btnEditaA" class="mt-5 text-center"><a href="perfilEstudante"><button class="btn btn-primary profile-button"
+                                            <div id="btnEditaA" class="mt-5 text-center"><a href="perfilEstudante"><button class="btn btn-primary profile-button"
                                                 type="button">Editar Perfil</button></a>
                                     </div>
+
                     <div class="col-md-12">
 
                                     </div>
                             </div>
+
                             <div class="col-md-4">
                                 <div class="p-3 py-5">
                                     <div class="d-flex justify-content-between align-items-center experience">

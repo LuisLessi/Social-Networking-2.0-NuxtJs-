@@ -1,6 +1,6 @@
 <template>
   <div>
-  <form @submit.prevent="criarContaA" >
+  <form @submit.prevent="atualizarConta" >
           <div class="nav-wrapper">
                   <div class="grad-bar">
                           <div class="nav-wrapper">
@@ -52,17 +52,25 @@
 
                                   <input type="file"  ref="flImage" id="flImage" name="flImage" class="flImage" @change="filePhotoLoad" accept="image/*" >
                                                   </div>
-
+                                                  <button
+                               class="btn btn-primary profile-button"
+                               type="button" @click= puxaDados(clientes)>Puxar dado</button>
                                                   <div class="row mt-2">
                                                           <div>
-                                                                  <label class="profileLabel"></label><input type="text"
+                                                            <p class="dadosSalvos">Nome</p>
+                                                                  <label class="profileLabel"></label><input
+                                                                  id="nome"
+                                                                  type="text"
                                                                           name="nome"
                                                                           class="form-control"
-                                                                          :placeholder= "clientes.nome" v-model="aluno.nome" required>
+                                                                          placeholder= "Digite seu nome" v-model="aluno.nome" required>
                                                           </div>
-                                                          <div><label class="profileLabel"></label><input type="text"
+                                                          <div>
+                                                            <p class="dadosSalvos">Email</p>
+                                                            <label class="profileLabel"></label><input type="text"
+                                                                  id="email"
                                                                           name="email" class="form-control"
-                                                                          :placeholder= "clientes.email"  v-model="aluno.email" required>
+                                                                          placeholder= "Digite seu email"  v-model="aluno.email" required>
                                                           </div>
                                                   </div>
                                                   <div
@@ -105,11 +113,13 @@
 
 
                                                           <div class="row mt-3">
-                                                                  <div class="col-md-12"><label
+                                                                  <div class="col-md-12">
+
+                                                                    <label
                                                                                   class="labels">Número de
                                                                                   celular</label><input type="phone"
                                                                       name="celular" id="celular"
-                                                                      :placeholder="clientes.celular"
+                                                                      placeholder="Digite seu número de celular"
 
                                                                       class="form-control" maxlength="11" v-mask="['###########']" v-model="aluno.celular" required>
 
@@ -126,29 +136,35 @@
                                                                   </div>
                                                                   <div class="col-md-12"><label
                                                                                   class="labels">Linkedin</label><input
+                                                                                  id="linkedin"
                                                                                   type="text" name="linkedin"
                                                                                   class="form-control"
-                                                                                  placeholder="Digite o nome de sua rua"
-                                                                                  value="" v-model="aluno.link">
+                                                                                  placeholder="Digite o link de seu linkedin"
+                                                                                  value=""
+                                                                                   v-model="aluno.link">
                                                                   </div>
                                                                   <div class="col-md-12"><label
                                                                                   class="labels">Sites</label><input
+                                                                                  id="sites"
                                                                                   type="text" name="sites"
                                                                                   class="form-control"
-                                                                                  placeholder="Digite o nome de sua rua"
+                                                                                  placeholder="Digite o link de seu site"
                                                                                   value="" v-model="aluno.site">
                                                                   </div>
                                                                   <div class="col-md-12"><label
-                                                                                  class="labels">Bairro</label><input
+                                                                                  class="labels">
+                                                                                  Bairro</label><input
+                                                                                  id="bairro"
                                                                                   type="text" name="bairro"
                                                                                   class="form-control"
-                                                                                  placeholder="Digite o numero de sua casa"
+                                                                                  placeholder="Digite o bairro de sua casa"
                                                                                   value="" v-model="aluno.bairro">
                                                                   </div>
                                                                   <div class="col-md-12"><label class="labels">Data de
                                                                                   nascimento</label>
 
                     <input name="data"
+                    id="data"
                     type="date"
                     v-model="aluno.dataDeNascimento"
                     class="form-control"
@@ -160,8 +176,9 @@
 
                                                                   </div>
 
-                                                                  <div class="col-md-12"><label class="labels">Senha</label><input type="password"
-                                          name="senha" class="form-control" placeholder="senha" value=""
+                                                                  <div class="col-md-12"><label class="labels">Redefinir a senha</label><input id="senha"
+                                                                     type="password"
+                                          name="senha" class="form-control" placeholder="Digite uma nova senha" value=""
                                           v-model="aluno.senha">
                                   </div>
                                                                   <div class="col-md-12"><label
@@ -184,14 +201,19 @@
                                                           </div>
 
                                                           <div class="row mt-3">
+                                                            <p class="cursos" v-for="curso of clientes.cursos" :key="curso.cursos">{{curso}}</p>
                                                                   <div class="col-md-6"><label
                                                                                   class="labels">Cidade</label><input
+                                                                                  id="cidade"
                                                                                   name="cidade" type="text"
                                                                                   class="form-control"
-                                                                                  placeholder="Digite sua cidade"
-                                                                                  value="" v-model="aluno.cidade"></div>
+
+
+                                                                                placeholder="Digite sua cidade atual"
+                                                            v-model="aluno.cidade"></div>
                                                                   <div class="col-md-6"><label
                                                                                   class="labels">Estado</label><select
+                                                                                  id="estado"
                                                                                   type="text"
                                                                                   v-model="aluno.estado" class="form-control"
                                                                                   value=""
@@ -226,7 +248,9 @@
                                                           </div>
                                                           <div id = "salvaPerfilA" class="mt-5 text-center"><a href="perfilCriadoA"><button
                                class="btn btn-primary profile-button"
-                               type="submit" @click= perfil()>Salvar Edição</button></a></div>
+                               type="submit" @click= atualizarConta()>Salvar Edição</button></a></div>
+
+
                                                   </div>
                                           </div>
 
@@ -307,23 +331,46 @@
       })
     },
     methods: {
-      perfil(){
-        this.$router.push("/perfilCriadoA");
-      },
-      criarContaA(){
-        Aluno.criarContaA(this.aluno).then(resposta =>{
-          console.log(resposta.data)
-          alert('Conta editada com sucesso')
-        })
+
+      puxaDados(){
+
+        document.getElementById("nome").value = this.clientes.nome
+        document.getElementById("email").value = this.clientes.email
+        document.getElementById("celular").value = this.clientes.celular
+        document.getElementById("phone").value = this.clientes.tel
+        document.getElementById("linkedin").value = this.clientes.link
+        document.getElementById("sites").value = this.clientes.site
+        document.getElementById("bairro").value = this.clientes.endereco.bairro
+        document.getElementById("data").value = this.clientes.dataDeNascimento
+       // document.getElementById("senha").value = this.clientes.senha
+        document.getElementById("cidade").value = this.clientes.endereco.cidade
+        document.getElementById("estado").value = this.clientes.endereco.estado
 
       },
-      atualizarConta(){
+      atualizarConta(cliente){
+        this.clientes.nome = document.getElementById("nome").value
+        this.clientes.email = document.getElementById("email").value
+        this.clientes.celular = document.getElementById("celular").value
+        this.clientes.tel = document.getElementById("phone").value
+        this.clientes.link = document.getElementById("linkedin").value
+        this.clientes.sites = document.getElementById("sites").value
+        this.clientes.endereco.bairro = document.getElementById("bairro").value
+        this.clientes.dataDeNascimento = document.getElementById("data").value
+        this.clientes.senha = document.getElementById("senha").value
+        this.clientes.endereco.cidade = document.getElementById("cidade").value
+        this.clientes.endereco.estado = document.getElementById("estado").value
+
+      },
+
+     /**  atualizarConta(){
         Aluno.atualizar(this.aluno).then(resposta =>{
           console.log(resposta.data)
           alert('Conta editada com sucesso')
         })
 
-      },
+      },*/
+
+
       //ícone foto
       imgPhotoLoad(){
         this.$refs.flImage.click()
@@ -445,6 +492,7 @@
 
   }
 
+
   .perfil {
       background-color: #00a2e8;
       border-radius: 4px;
@@ -510,7 +558,9 @@
       margin-right: -120px;
 
   }
-
+.end{
+  display: inline-block;
+}
   .nav-item a {
       color: #000;
       font-size: 15px;
@@ -627,6 +677,10 @@
   .profile-head h5 {
       color: #333;
   }
+
+.dadosSalvos{
+  margin-bottom: -10px;
+}
 
   .profile-head h6 {
       color: #0062cc;
