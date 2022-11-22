@@ -52,9 +52,8 @@
 
                                   <input type="file"  ref="flImage" id="flImage" name="flImage" class="flImage" @change="filePhotoLoad" accept="image/*" >
                                                   </div>
-                                                  <button
-                               class="btn btn-primary profile-button"
-                               type="button" @click= puxaDados(clientes)>Puxar dado</button>
+
+
                                                   <div class="row mt-2">
                                                           <div>
                                                             <p class="dadosSalvos">Nome</p>
@@ -63,14 +62,14 @@
                                                                   type="text"
                                                                           name="nome"
                                                                           class="form-control"
-                                                                          placeholder= "Digite seu nome" v-model="aluno.nome" required>
+                                                                          placeholder= "Digite seu nome" v-model="clientes.nome" required>
                                                           </div>
                                                           <div>
                                                             <p class="dadosSalvos">Email</p>
                                                             <label class="profileLabel"></label><input type="text"
                                                                   id="email"
                                                                           name="email" class="form-control"
-                                                                          placeholder= "Digite seu email"  v-model="aluno.email" required>
+                                                                          placeholder= "Digite seu email"  v-model="clientes.email" required>
                                                           </div>
                                                   </div>
                                                   <div
@@ -90,7 +89,7 @@
   <button @click="input2--" class="btn btn-outline-secondary" type="button" style="min-width:110px;">Remover</button>
 
 
-  <input v-for="i in input2" :key="i" type="text" class="form-control" :id='"item"' style="max-width:240px; margin-top:5px" v-model="aluno.exp[i]">
+  <input v-for="i in input2" :key="i" type="text" class="form-control" :id='"item"' style="max-width:240px; margin-top:5px" >
                                                                           </div>
                                                                   </form>
                                                                   <ul id="todolist"></ul>
@@ -121,7 +120,7 @@
                                                                       name="celular" id="celular"
                                                                       placeholder="Digite seu número de celular"
 
-                                                                      class="form-control" maxlength="11" v-mask="['###########']" v-model="aluno.celular" required>
+                                                                      class="form-control" maxlength="11" v-mask="['###########']" v-model="clientes.celular" required>
 
 
                                                                                   <label for="signupPassword"></label>
@@ -132,7 +131,7 @@
                                                                                   name="tel" id="phone"
                                                                                   placeholder="Digite seu número de telefone"
                                                                                   class="form-control"
-                                                                                  v-model="aluno.tel" v-mask="['(##) ####-####']" />
+                                                                                  v-model="clientes.telefone" v-mask="['(##) ####-####']" />
                                                                   </div>
                                                                   <div class="col-md-12"><label
                                                                                   class="labels">Linkedin</label><input
@@ -141,7 +140,7 @@
                                                                                   class="form-control"
                                                                                   placeholder="Digite o link de seu linkedin"
                                                                                   value=""
-                                                                                   v-model="aluno.link">
+                                                                                   v-model="clientes.link">
                                                                   </div>
                                                                   <div class="col-md-12"><label
                                                                                   class="labels">Sites</label><input
@@ -149,7 +148,7 @@
                                                                                   type="text" name="sites"
                                                                                   class="form-control"
                                                                                   placeholder="Digite o link de seu site"
-                                                                                  value="" v-model="aluno.site">
+                                                                                  value="" v-model="clientes.sites">
                                                                   </div>
                                                                   <div class="col-md-12"><label
                                                                                   class="labels">
@@ -158,15 +157,14 @@
                                                                                   type="text" name="bairro"
                                                                                   class="form-control"
                                                                                   placeholder="Digite o bairro de sua casa"
-                                                                                  value="" v-model="aluno.bairro">
+                                                                                  value="" v-model="clientes.bairro">
                                                                   </div>
                                                                   <div class="col-md-12"><label class="labels">Data de
                                                                                   nascimento</label>
 
                     <input name="data"
                     id="data"
-                    type="date"
-                    v-model="aluno.dataDeNascimento"
+                    v-model="clientes.dataDeNascimento"
                     class="form-control"
                     v-mask="['####-##-##']"
                     maxlength="13"
@@ -179,12 +177,12 @@
                                                                   <div class="col-md-12"><label class="labels">Redefinir a senha</label><input id="senha"
                                                                      type="password"
                                           name="senha" class="form-control" placeholder="Digite uma nova senha" value=""
-                                          v-model="aluno.senha">
+                                          >
                                   </div>
                                                                   <div class="col-md-12"><label
                                                                                   class="labels">Escolaridade</label>
                                                                           <select type="text" class="form-control"
-                                                                                  value="" v-model="aluno.escolar">
+                                                                                  value="">
                                                                                   <option >Ensino
                                                                                           Fundamental Incopleto </option>
                                                                                   <option>Ensino Fundamental Completo
@@ -203,19 +201,20 @@
                                                           <div class="row mt-3">
                                                             <p class="cursos" v-for="curso of clientes.cursos" :key="curso.cursos">{{curso}}</p>
                                                                   <div class="col-md-6"><label
-                                                                                  class="labels">Cidade</label><input
+                                                                                  class="labels">Cidade</label>
+                                                                                  <input
                                                                                   id="cidade"
                                                                                   name="cidade" type="text"
                                                                                   class="form-control"
-
-
+                                                                                  v-model="clientes.endereco.cidade"
                                                                                 placeholder="Digite sua cidade atual"
-                                                            v-model="aluno.cidade"></div>
+
+                                                           ></div>
                                                                   <div class="col-md-6"><label
                                                                                   class="labels">Estado</label><select
                                                                                   id="estado"
                                                                                   type="text"
-                                                                                  v-model="aluno.estado" class="form-control"
+                                                                                  v-model="clientes.endereco.estado" class="form-control"
                                                                                   value=""
                                                                                   placeholder="Digite seu estado">
                                                                                   <option>AC</option>
@@ -253,7 +252,6 @@
 
                                                   </div>
                                           </div>
-
                                           <div class="col-md-4">
                                                   <div class="p-3 py-5">
                                                           <div
@@ -272,7 +270,9 @@
 
                                           </div>
 
-                                  </div>
+                                          </div>
+
+
 
                           </div>
 
@@ -321,33 +321,28 @@
     },
     asyncData(){
      return{
-       clientes: [],
+       clientes:{
+        endereco:[],
+        experiencias:[],
+        cursos:[]
+       },
     }
   },
+
     mounted(){
+
       Aluno.listar().then(resposta =>{
       console.log(resposta.data)
+
       this.clientes = resposta.data[63]
+
       })
+
     },
     methods: {
 
-      puxaDados(){
 
-        document.getElementById("nome").value = this.clientes.nome
-        document.getElementById("email").value = this.clientes.email
-        document.getElementById("celular").value = this.clientes.celular
-        document.getElementById("phone").value = this.clientes.tel
-        document.getElementById("linkedin").value = this.clientes.link
-        document.getElementById("sites").value = this.clientes.site
-        document.getElementById("bairro").value = this.clientes.endereco.bairro
-        document.getElementById("data").value = this.clientes.dataDeNascimento
-       // document.getElementById("senha").value = this.clientes.senha
-        document.getElementById("cidade").value = this.clientes.endereco.cidade
-        document.getElementById("estado").value = this.clientes.endereco.estado
-
-      },
-      atualizarConta(cliente){
+      atualizarConta(){
         this.clientes.nome = document.getElementById("nome").value
         this.clientes.email = document.getElementById("email").value
         this.clientes.celular = document.getElementById("celular").value
