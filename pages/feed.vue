@@ -329,7 +329,7 @@ export default {
 
     Aluno.listar().then(resposta =>{
       console.log(resposta.data)
-      this.clientes = resposta.data[3]
+      this.clientes = resposta.data[63]
       })
   },
   methods: {

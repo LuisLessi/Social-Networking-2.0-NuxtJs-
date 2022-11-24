@@ -10,7 +10,7 @@ export default {
   },
 
   atualizar: (usuario) => {
-    return http.put('alunos', usuario) //PUT ALUNOS
+    return http.put(`empresas/${usuario.token}`, usuario) //PUT ALUNOS
   },
   apagar: (usuario) => {
     return http.delete('aluno', { data: usuario }) //Delete ALUNOS

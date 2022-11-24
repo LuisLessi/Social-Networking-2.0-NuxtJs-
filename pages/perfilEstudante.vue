@@ -1,6 +1,6 @@
 <template>
   <div>
-  <form @submit.prevent="atualizarConta" >
+  <form @submit.prevent="" >
           <div class="nav-wrapper">
                   <div class="grad-bar">
                           <div class="nav-wrapper">
@@ -164,6 +164,7 @@
 
                     <input name="data"
                     id="data"
+                    type="date"
                     v-model="clientes.dataDeNascimento"
                     class="form-control"
                     v-mask="['####-##-##']"
@@ -245,9 +246,11 @@
                                                                                   <option>TO</option>
                                                                           </select></div>
                                                           </div>
-                                                          <div id = "salvaPerfilA" class="mt-5 text-center"><a href="perfilCriadoA"><button
-                               class="btn btn-primary profile-button"
-                               type="submit" @click= atualizarConta()>Salvar Edição</button></a></div>
+                                                          <div id = "salvaPerfilA" class="mt-5 text-center">
+
+                               <a href="perfilCriadoA"><button class="btn btn-primary profile-button"
+                                                type="button">Salvar Edição</button></a></div>
+
 
 
                                                   </div>
@@ -293,6 +296,7 @@
     data() {
       return {
         aluno:{
+         id: "636f81d0658b24cd5d94af4a",
          imagem: "",
          nome: "",
          email:"",
@@ -342,28 +346,32 @@
     methods: {
 
 
-      atualizarConta(){
-        this.clientes.nome = document.getElementById("nome").value
-        this.clientes.email = document.getElementById("email").value
-        this.clientes.celular = document.getElementById("celular").value
-        this.clientes.tel = document.getElementById("phone").value
-        this.clientes.link = document.getElementById("linkedin").value
-        this.clientes.sites = document.getElementById("sites").value
-        this.clientes.endereco.bairro = document.getElementById("bairro").value
-        this.clientes.dataDeNascimento = document.getElementById("data").value
-        this.clientes.senha = document.getElementById("senha").value
-        this.clientes.endereco.cidade = document.getElementById("cidade").value
-        this.clientes.endereco.estado = document.getElementById("estado").value
+      /*atualizarConta(){
 
-      },
+        this.aluno.nome = document.getElementById("nome").value
+        this.aluno.email = document.getElementById("email").value
+        this.aluno.celular = document.getElementById("celular").value
+        this.aluno.tel = document.getElementById("phone").value
+        this.aluno.link = document.getElementById("linkedin").value
+        this.aluno.site = document.getElementById("sites").value
+        this.aluno.bairro = document.getElementById("bairro").value
+        this.aluno.dataDeNascimento = document.getElementById("data").value
+        this.aluno.senha = document.getElementById("senha").value
+        this.aluno.cidade = document.getElementById("cidade").value
+        this.aluno.estado = document.getElementById("estado").value
 
-     /**  atualizarConta(){
-        Aluno.atualizar(this.aluno).then(resposta =>{
-          console.log(resposta.data)
-          alert('Conta editada com sucesso')
-        })
-
+axios.put(`http://localhost:3000/empresas/${this.aluno.id}`, this.aluno).then(() =>{
+  this.listar()
+})
       },*/
+
+      Editar(){
+
+        Aluno.atualizar(this.clientes).then(resposta => {
+          alert('Conta editada com sucesso')
+          console.log(resposta.data)
+        })
+      },
 
 
       //ícone foto
